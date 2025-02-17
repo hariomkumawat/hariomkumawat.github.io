@@ -2321,7 +2321,8 @@ p {
 body {
   color: #2c2c2c;
   font-size: 14px;
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif; */
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased; }
 
@@ -5187,6 +5188,10 @@ Created using IcoMoon - icomoon.io
 /* Profile Page Social button Style */
 .button-container .btn-default {
   margin-right: 8px; }
+.progress-container:hover {
+    transform: scale(1.05);
+    transition: 0.3s ease-in-out;
+}
 
 /* Professional Skills Style */
 .progress-container {
@@ -5203,6 +5208,7 @@ Created using IcoMoon - icomoon.io
   .progress-container .aos-animate {
     transform: scaleX(1); }
 
+    
 /* Experience Style */
 .cc-experience .cc-experience-header {
   padding-top: 60px;
