@@ -22,6 +22,161 @@
       }
     </style>
   </noscript>
+  <style>
+    .portfolio-section {
+      padding: 80px 0;
+      background: #f8f9fa;
+    }
+    
+    .portfolio-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .portfolio-title {
+      text-align: center;
+      margin-bottom: 50px;
+      color: #2d3436;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    
+    .portfolio-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    
+    .tab-button {
+      background: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #636e72;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .tab-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .tab-button.active {
+      background: #0984e3;
+      color: white;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      padding: 20px 0;
+    }
+    
+    .portfolio-item {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+    
+    .portfolio-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    
+    .portfolio-content {
+      padding: 25px;
+    }
+    
+    .portfolio-title-small {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #2d3436;
+      margin-bottom: 10px;
+    }
+    
+    .portfolio-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+    
+    .tech-tag {
+      background: #f1f2f6;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: #636e72;
+    }
+    
+    .portfolio-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #0984e3;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    
+    .portfolio-link:hover {
+      color: #0056b3;
+    }
+  
+    .portfolio-video {
+      width: 100%;
+      height: 315px;
+      border: none;
+      border-radius: 15px 15px 0 0;
+    }
+  
+    .tab-content {
+      display: none;
+    }
+  
+    .tab-content.active {
+      display: block;
+    }
+  
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      padding: 20px 0;
+    }
+  
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 15px 15px 0 0;
+    }
+  
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+  
 </head>
 
 <body id="top">
@@ -207,95 +362,6 @@
         </div>
       </div>
 
-      <!-- <div class="section" id="skill">
-        <div class="container">
-          <div class="h4 text-center mb-4 title">Professional Skills</div>
-          <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="progress-container progress-primary"><span class="progress-badge">Django</span>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10"
-                        data-aos-duration="2000" role="progressbar" aria-valuenow="80" aria-valuemin="0"
-                        aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="progress-container progress-primary"><span class="progress-badge">Python</span>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10"
-                        data-aos-duration="2000" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                        aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="progress-container progress-primary"><span class="progress-badge">Javascript</span>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10"
-                        data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                        aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="progress-container progress-primary"><span class="progress-badge">MYSQL</span>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10"
-                        data-aos-duration="2000" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                        aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="progress-container progress-primary"><span class="progress-badge">HTML</span>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10"
-                        data-aos-duration="2000" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                        aria-valuemax="100" style="width: 90%;"></div><span class="progress-value">90%</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="progress-container progress-primary"><span class="progress-badge">CSS</span>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10"
-                        data-aos-duration="2000" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                        aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="progress-container progress-primary"><span class="progress-badge">Bootstrap</span>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10"
-                        data-aos-duration="2000" role="progressbar" aria-valuenow="80" aria-valuemin="0"
-                        aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="progress-container progress-primary"><span class="progress-badge">Git</span>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10"
-                        data-aos-duration="2000" role="progressbar" aria-valuenow="50" aria-valuemin="0"
-                        aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>  -->
-
       <div class="section" id="skill">
         <div class="container">
           <div class="h4 text-center mb-4 title">Professional Skills</div>
@@ -429,255 +495,326 @@
         </div>
       </div>
 
-
-      <div class="section" id="portfolio">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 ml-auto mr-auto">
-              <div class="h4 text-center mb-4 title">Portfolio</div>
-              <div class="nav-align-center">
-                <ul class="nav nav-pills nav-pills-primary" role="tablist">
-                  <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#web-development"
-                      role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
-                  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#graphic-design" role="tablist"><i
-                        class="fa fa-picture-o" aria-hidden="true"></i></a></li>
-                  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Photography" role="tablist"><i
-                        class="fa fa-video-camera" aria-hidden="true"></i></a></li>
-                </ul>
-              </div>
+<!-- portfolio section start -->
+<section class="portfolio-section">
+  <div class="portfolio-container">
+    <h2 class="portfolio-title">My Portfolio</h2>
+    
+    <div class="portfolio-tabs">
+      <button class="tab-button active" data-tab="web">Web Development</button>
+      <!-- <button class="tab-button" data-tab="design">UI/UX Design</button> -->
+      <button class="tab-button" data-tab="photo">Photos/Demo Videos</button>
+    </div>
+    
+    <div class="tab-content active" id="web">
+      <div class="portfolio-grid">
+        <!-- E-Commerce Project -->
+        <div class="portfolio-item">
+          <img src="/images/e1.png" alt="E-Commerce Project" class="portfolio-image">
+          <div class="portfolio-content">
+            <h3 class="portfolio-title-small">E-Commerce Platform</h3>
+            <p>A full-featured e-commerce solution with modern design and seamless user experience.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQLite3</span>
+              <span class="tech-tag">JavaScript</span>
             </div>
+            <a href="https://shopsite77.pythonanywhere.com/" class="portfolio-link">View Project →</a>
           </div>
-          <div class="tab-content gallery mt-5">
-            <div class="tab-pane active" id="web-development">
-              <div class="ml-auto mr-auto">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <!-- <a href="https://github.com/hariomkumawat/MyShop_E-commerce_Django_Project"> -->
-                        <a href="https://shopsite77.pythonanywhere.com/">
-                        <figure class="cc-effect"><img src="images/e1.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">E-Commerce</div>
-                            <p>Django,Python,Sqlite3,Js,css,Html</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="https://hariomkumawat.github.io/Car_Rent_Project_template.github.io/">
-                        <figure class="cc-effect"><img src="images/carrent.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Car Rent Project Template</div>
-                            <p>Javascript,Bootstrap,css,Html</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="https://github.com/hariomkumawat/URL-Shortener-in-Django">
-                        <figure class="cc-effect"><img src="images/urlshort.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">URL-Shortener</div>
-                            <p>Django,Python,Sqlite3,css,Html</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                  </div>
-                  
-                  
-                  
-                  <div class="col-md-6">
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <!-- <a href="https://github.com/hariomkumawat/tech_interview_preparation"> -->
-                        <a href="https://tech-hub-green.vercel.app/">
-                        <figure class="cc-effect"><img src="images/texh.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Tech Hub</div>
-                            <p>Django,Python,React js,Sqlite3,Js,css,Html</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    <!-- <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="https://github.com/hariomkumawat/newsapp">
-                        <figure class="cc-effect"><img src="images/news.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">News App Project</div>
-                            <p>Django,Python,NewsAPI,Sqlite3,Js,css,Html</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div> -->
-                    
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#web-development">
-                        <figure class="cc-effect"><img src="images/news1.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">News scraping Project</div>
-                            <p>Django,Python,NewsAPI,Sqlite3,Js,css,Html</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+        </div>
+        
+        <!-- Tech Hub Project -->
+        <div class="portfolio-item">
+          <img src="/images/texh.png" alt="Tech Hub" class="portfolio-image">
+          <div class="portfolio-content">
+            <h3 class="portfolio-title-small">Tech Hub</h3>
+            <p>Technical interview preparation platform with comprehensive learning resources.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">Python</span>
+            </div>
+            <a href="https://tech-hub-green.vercel.app/" class="portfolio-link">View Project →</a>
+          </div>
+        </div>
+        <!-- Car Rent Template -->
+        <div class="portfolio-item">
+          <img src="/images/carrent.png" alt="URL Shortener" class="portfolio-image">
+          <div class="portfolio-content">
+            <h3 class="portfolio-title-small">Car Rent Template</h3>
+            <p>A Car rent service Template with analytics and custom aliases.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JS</span>
+              <span class="tech-tag">Bootstrap</span>
+            </div>
+            <a href="https://hariomkumawat.github.io/Car_Rent_Project_template.github.io/" class="portfolio-link">View Project →</a>
+          </div>
+        </div>
+        <!-- News app -->
+        <div class="portfolio-item">
+          <img src="/images/carrent.png" alt="URL Shortener" class="portfolio-image">
+          <div class="portfolio-content">
+            <h3 class="portfolio-title-small">News App</h3>
+            <p>A Car rent service Template with analytics and custom aliases.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">News Api</span>
+            </div>
+            <a href="https://hariomkumawat.github.io/Car_Rent_Project_template.github.io/" class="portfolio-link">View Project →</a>
+          </div>
+        </div>
+        <!-- URL Shortener Project -->
+        <div class="portfolio-item">
+          <img src="/images/urlshort.png" alt="URL Shortener" class="portfolio-image">
+          <div class="portfolio-content">
+            <h3 class="portfolio-title-small">URL Shortener</h3>
+            <p>A powerful URL shortening service with analytics and custom aliases.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQLite3</span>
+            </div>
+            <a href="#" class="portfolio-link">View Project →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="design">
+      <div class="portfolio-grid">
+        <!-- Design Projects Here -->
+      </div>
+    </div>
+
+    <div class="tab-content" id="photo">
+      <div class="photo-grid">
+        <div class="portfolio-item">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/_veCfqNECUQ?si=cXPVK5WJhahIar6t" 
+              title="Project Demo Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="portfolio-content">
+            <h3 class="portfolio-title-small">Project Demo Showcase</h3>
+            <p>A comprehensive video demonstration of key projects and their features.</p>
+            <div class="portfolio-tech">
+              <span class="tech-tag">Video Production</span>
+              <span class="tech-tag">Project Demo</span>
+            </div>
+            <a href="https://www.youtube.com/embed/_veCfqNECUQ?si=cXPVK5WJhahIar6t" class="portfolio-link">Watch Full Video →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      <!--  -->
+
+<!-- <div class="section" id="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 ml-auto mr-auto">
+        <div class="h4 text-center mb-4 title">Portfolio</div>
+        <div class="nav-align-center">
+          <ul class="nav nav-pills nav-pills-primary" role="tablist">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#web-development"
+                role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#graphic-design" role="tablist"><i
+                  class="fa fa-picture-o" aria-hidden="true"></i></a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Photography" role="tablist"><i
+                  class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content gallery mt-5">
+      <div class="tab-pane active" id="web-development">
+        <div class="ml-auto mr-auto">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                  <a href="https://shopsite77.pythonanywhere.com/">
+                  <figure class="cc-effect"><img src="images/e1.png" alt="Image" />
+                    <figcaption>
+                      <div class="h4">E-Commerce</div>
+                      <p>Django,Python,Sqlite3,Js,css,Html</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <a href="https://hariomkumawat.github.io/Car_Rent_Project_template.github.io/">
+                  <figure class="cc-effect"><img src="images/carrent.png" alt="Image" />
+                    <figcaption>
+                      <div class="h4">Car Rent Project Template</div>
+                      <p>Javascript,Bootstrap,css,Html</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <a href="https://github.com/hariomkumawat/URL-Shortener-in-Django">
+                  <figure class="cc-effect"><img src="images/urlshort.png" alt="Image" />
+                    <figcaption>
+                      <div class="h4">URL-Shortener</div>
+                      <p>Django,Python,Sqlite3,css,Html</p>
+                    </figcaption>
+                  </figure>
+                </a>
               </div>
             </div>
-
-
-            <div class="tab-pane" id="graphic-design" role="tabpanel">
-              <div class="ml-auto mr-auto">
-                <div class="row">
-                  <div class="col-md-6">
-                    
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#graphic-design">
-                        <figure class="cc-effect"><img src="images/texh.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Tech Hub</div>
-                            <p>Django,Python,React js,Sqlite3,Js,css,Html</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#graphic-design">
-                        <figure class="cc-effect"><img src="images/carrent.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Car Rent</div>
-                            <p>Graphic Design</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#graphic-design">
-                        <figure class="cc-effect"><img src="images/urlshort.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4"> URL-Shortener</div>
-                            <p>Graphic Design</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-
-                  </div>
-                  <div class="col-md-6">
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#graphic-design">
-                        <figure class="cc-effect"><img src="images/e2.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">All Products</div>
-                            <p>Graphic Design</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#graphic-design">
-                        <figure class="cc-effect"><img src="images/tech.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Tech Hub</div>
-                            <p>Django,Python,React js,Sqlite3,Js,css,Html</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#graphic-design">
-                        <figure class="cc-effect"><img src="images/e3.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Products Details</div>
-                            <p>Graphic Design</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#graphic-design">
-                        <figure class="cc-effect"><img src="images/e4.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">All Orders</div>
-                            <p>Graphic Design</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#graphic-design">
-                        <figure class="cc-effect"><img src="images/e1.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Main Page</div>
-                            <p>Graphic Design</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+            
+            
+            
+            <div class="col-md-6">
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                  <a href="https://tech-hub-green.vercel.app/">
+                  <figure class="cc-effect"><img src="images/texh.png" alt="Image" />
+                    <figcaption>
+                      <div class="h4">Tech Hub</div>
+                      <p>Django,Python,React js,Sqlite3,Js,css,Html</p>
+                    </figcaption>
+                  </figure>
+                </a>
               </div>
-            </div>
-            <div class="tab-pane" id="Photography" role="tabpanel">
-              <div class="ml-auto mr-auto">
-                <div class="row">
-                  <div class="col-md-6">
-                    <iframe width="400px" height="315"
-                      src="https://www.youtube.com/embed/_veCfqNECUQ?si=cXPVK5WJhahIar6t" title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowfullscreen></iframe>
-                    <!-- <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#Photography">
-                        <figure class="cc-effect"><img src="images/photography-1.jpg" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Photoshoot</div>
-                            <p>Photography</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div> -->
-                    <!-- <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#Photography">
-                        <figure class="cc-effect"><img src="images/photography-3.jpg" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Wedding Photoshoot</div>
-                            <p>Photography</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div> -->
-                  </div>
-                  <div class="col-md-6">
-                    <!-- <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#Photography">
-                        <figure class="cc-effect"><img src="images/photography-2.jpg" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Beach Photoshoot</div>
-                            <p>Photography</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div> -->
-                    <!-- <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#Photography">
-                        <figure class="cc-effect"><img src="images/photography-4.jpg" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Nature Photoshoot</div>
-                            <p>Photography</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div> -->
-                  </div>
-                </div>
+             
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <a href="#web-development">
+                  <figure class="cc-effect"><img src="images/news1.png" alt="Image" />
+                    <figcaption>
+                      <div class="h4">News scraping Project</div>
+                      <p>Django,Python,NewsAPI,Sqlite3,Js,css,Html</p>
+                    </figcaption>
+                  </figure>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="tab-pane" id="graphic-design" role="tabpanel">
+        <div class="ml-auto mr-auto">
+          <div class="row">
+            <div class="col-md-6">
+              
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <a href="#graphic-design">
+                  <figure class="cc-effect"><img src="images/texh.png" alt="Image" />
+                    <figcaption>
+                      <div class="h4">Tech Hub</div>
+                      <p>Django,Python,React js,Sqlite3,Js,css,Html</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+              
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <a href="#graphic-design">
+                  <figure class="cc-effect"><img src="images/carrent.png" alt="Image" />
+                    <figcaption>
+                      <div class="h4">Car Rent</div>
+                      <p>Graphic Design</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <a href="#graphic-design">
+                  <figure class="cc-effect"><img src="images/urlshort.png" alt="Image" />
+                    <figcaption>
+                      <div class="h4"> URL-Shortener</div>
+                      <p>Graphic Design</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
 
+            </div>
+            <div class="col-md-6">
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <a href="#graphic-design">
+                  <figure class="cc-effect"><img src="images/e2.png" alt="Image" />
+                    <figcaption>
+                      <div class="h4">All Products</div>
+                      <p>Graphic Design</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <a href="#graphic-design">
+                  <figure class="cc-effect"><img src="images/tech.png" alt="Image" />
+                    <figcaption>
+                      <div class="h4">Tech Hub</div>
+                      <p>Django,Python,React js,Sqlite3,Js,css,Html</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <a href="#graphic-design">
+                  <figure class="cc-effect"><img src="images/e3.png" alt="Image" />
+                    <figcaption>
+                      <div class="h4">Products Details</div>
+                      <p>Graphic Design</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <a href="#graphic-design">
+                  <figure class="cc-effect"><img src="images/e4.png" alt="Image" />
+                    <figcaption>
+                      <div class="h4">All Orders</div>
+                      <p>Graphic Design</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <a href="#graphic-design">
+                  <figure class="cc-effect"><img src="images/e1.png" alt="Image" />
+                    <figcaption>
+                      <div class="h4">Main Page</div>
+                      <p>Graphic Design</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="Photography" role="tabpanel">
+        <div class="ml-auto mr-auto">
+          <div class="row">
+            <div class="col-md-6">
+              <iframe width="400px" height="315"
+                src="https://www.youtube.com/embed/_veCfqNECUQ?si=cXPVK5WJhahIar6t" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+             
+            </div>
+            <div class="col-md-6">
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- portfolio section end -->
 
       <div class="section" id="education">
         <div class="container cc-education">
@@ -964,6 +1101,29 @@
   <script src="js/now-ui-kit.js?ver=1.1.0"></script>
   <script src="js/aos.js?ver=1.1.0"></script>
   <script src="scripts/main.js?ver=1.1.0"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.tab-button');
+      const contents = document.querySelectorAll('.tab-content');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remove active class from all tabs and contents
+          tabs.forEach(t => t.classList.remove('active'));
+          contents.forEach(c => c.classList.remove('active'));
+          
+          // Add active class to clicked tab
+          tab.classList.add('active');
+          
+          // Show corresponding content
+          const tabId = tab.getAttribute('data-tab');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+    });
+    </script>
+
 </body>
 
 </html>
