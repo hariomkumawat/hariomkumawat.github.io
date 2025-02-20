@@ -34,13 +34,13 @@
       padding: 0 20px;
     }
     
-    .portfolio-title {
+    /* .portfolio-title {
       text-align: center;
       margin-bottom: 50px;
       color: #303a3d;
       font-size: 1.714rem;
       font-weight: 700;
-    }
+    } */
     
     .portfolio-tabs {
       display: flex;
@@ -176,7 +176,110 @@
       border: none;
     }
   </style>
-  
+  <!-- skill style -->
+  <style>
+    .skills-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    .section-title,.portfolio-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        color: #2c3e50;
+        position: relative;
+    }
+    
+    .section-title:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: #3498db;
+        border-radius: 2px;
+    }
+    
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+    
+    .skill-category {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .category-title {
+        font-size: 1.2rem;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #f0f0f0;
+    }
+    
+    .skill-item {
+        margin-bottom: 25px;
+    }
+    
+    .skill-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+    
+    .skill-name {
+        font-weight: 500;
+        color: #34495e;
+    }
+    
+    .skill-percentage {
+        color: #7f8c8d;
+    }
+    
+    .progress-bar {
+        background: #f0f0f0;
+        height: 8px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        width: 0;
+        border-radius: 4px;
+        transition: width 1.5s ease-in-out;
+    }
+    
+    /* Category-specific colors */
+    .backend .progress-fill { background: #3498db; }
+    .ai-ml .progress-fill { background: #9b59b6; }
+    .frontend-db .progress-fill { background: #2ecc71; }
+    .devops .progress-fill { background: #e67e22; }
+    
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .skill-category {
+        animation: slideIn 0.5s ease-out forwards;
+    }
+    </style>
 </head>
 
 <body id="top">
@@ -305,7 +408,7 @@
 
       <div class="section" id="experience">
         <div class="container cc-experience">
-          <div class="h4 text-center mb-4 title">Work Experience</div>
+          <div class="portfolio-title">Work Experience</div>
           <div class="card">
             <div class="row">
               <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
@@ -371,7 +474,132 @@
         </div>
       </div>
 
-      <div class="section" id="skill">
+      <!-- skill section -->
+      <div class="skills-container">
+        <h2 class="section-title">Professional Skills</h2>
+        <div class="skills-grid">
+            <!-- Backend Development -->
+            <div class="skill-category backend">
+                <h3 class="category-title">Backend Development</h3>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="90"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Django</span>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="85"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Flask</span>
+                        <span class="skill-percentage">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="75"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">FastAPI</span>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="80"></div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- AI & ML -->
+            <div class="skill-category ai-ml">
+                <h3 class="category-title">AI & Machine Learning</h3>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Langchain</span>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="85"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">LLM & OpenAI</span>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="80"></div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Frontend & Database -->
+            <div class="skill-category frontend-db">
+                <h3 class="category-title">Frontend & Database</h3>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">JavaScript</span>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="70"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">PostgreSQL</span>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="85"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Bootstrap</span>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="80"></div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- DevOps & Tools -->
+            <div class="skill-category devops">
+                <h3 class="category-title">DevOps & Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">AWS (EC2, S3, RDS)</span>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="70"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Git & GitHub</span>
+                        <span class="skill-percentage">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="75"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- <div class="section" id="skill">
         <div class="container">
           <div class="h4 text-center mb-4 title">Professional Skills</div>
           <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
@@ -502,7 +730,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 <!-- portfolio section start -->
 <section class="portfolio-section">
@@ -896,7 +1124,7 @@
 
       <div class="section" id="education">
         <div class="container cc-education">
-          <div class="h4 text-center mb-4 title">Education</div>
+          <div class="portfolio-title">Education</div>
           <div class="card">
             <div class="row">
               <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
@@ -953,7 +1181,7 @@
 
       <div class="section" id="Achievements">
         <div class="container cc-education">
-          <div class="h4 text-center mb-4 title">Achievements & Certificate</div>
+          <div class="portfolio-title">Achievements & Certificate</div>
           <div class="card">
             <div class="row">
               <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
@@ -1181,6 +1409,22 @@
   <script src="scripts/main.js?ver=1.1.0"></script>
 
   <script>
+    // Animate progress bars when they come into view
+    function animateProgressBars() {
+        const progressBars = document.querySelectorAll('.progress-fill');
+        progressBars.forEach(bar => {
+            const width = bar.getAttribute('data-width');
+            bar.style.width = width + '%';
+        });
+    }
+    
+    // Initialize animations when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(animateProgressBars, 300);
+    });
+    </script>
+
+  <script>
     document.addEventListener('DOMContentLoaded', function() {
       const tabs = document.querySelectorAll('.tab-button');
       const contents = document.querySelectorAll('.tab-content');
@@ -1201,6 +1445,7 @@
       });
     });
     </script>
+
 
 </body>
 
