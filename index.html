@@ -24,6 +24,231 @@
   </noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <!-- header style -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Header styles */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .header-scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-scrolled .nav-link {
+      color: #2d3748 !important;
+    }
+
+    .header-scrolled .navbar-brand {
+      color: #2d3748 !important;
+    }
+
+    .navbar {
+      padding: 1.5rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .navbar-brand:hover {
+      color: #4299e1;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #4299e1;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: #4299e1;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 100;
+    }
+
+    .hamburger {
+      width: 24px;
+      height: 20px;
+      position: relative;
+      transform: rotate(0deg);
+      transition: 0.5s ease-in-out;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: white;
+      border-radius: 9px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: 0.25s ease-in-out;
+    }
+
+    .header-scrolled .hamburger span {
+      background: #2d3748;
+    }
+
+    .hamburger span:nth-child(1) { top: 0px; }
+    .hamburger span:nth-child(2) { top: 8px; }
+    .hamburger span:nth-child(3) { top: 16px; }
+
+    .hamburger.open span:nth-child(1) {
+      top: 8px;
+      transform: rotate(135deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      left: -60px;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      top: 8px;
+      transform: rotate(-135deg);
+    }
+
+    /* Mobile styles */
+    @media (max-width: 968px) {
+      .navbar-container {
+        padding: 0 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.2rem;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+        margin-left: auto;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: 0.3s ease;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+      }
+
+      .nav-menu.active {
+        right: 0;
+      }
+
+      .nav-link {
+        color: #2d3748;
+        font-size: 1.2rem;
+      }
+
+      /* Mobile overlay */
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 98;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .mobile-overlay.active {
+        display: block;
+        opacity: 1;
+      }
+    }
+  </style>
   <style>
     .header {
       position: fixed;
@@ -1398,31 +1623,33 @@
 
 <body id="top">
   <!-- header section -->
-  <header class="header">
+   <header class="header">
     <nav class="navbar">
       <div class="navbar-container">
-        <a href="#" class="navbar-brand">Hariom Kumawat</a>
-        
-        <button class="mobile-menu-btn">
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </button>
+        <div class="nav-wrapper">
+          <a href="#" class="navbar-brand">Hariom Kumawat</a>
+          <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+        </div>
 
         <ul class="nav-menu">
           <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
           <li><a href="#skill" class="nav-link">Skills</a></li>
           <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
           <li><a href="#Achievements" class="nav-link">Achievements</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </div>
     </nav>
   </header>
+  <div class="mobile-overlay"></div>
   <!-- <header>
     <div class="profile-page sidebar-collapse">
       <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
@@ -2664,12 +2891,19 @@
   <script src="js/now-ui-kit.js?ver=1.1.0"></script>
   <script src="js/aos.js?ver=1.1.0"></script>
   <script src="scripts/main.js?ver=1.1.0"></script>
+  
   <script>
-    // Handle scroll effects
+    // Elements
     const header = document.querySelector('.header');
     const navbar = document.querySelector('.navbar');
-    
-    window.addEventListener('scroll', () => {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const mobileOverlay = document.querySelector('.mobile-overlay');
+
+    // Scroll handler
+    function handleScroll() {
       if (window.scrollY > 100) {
         header.classList.add('header-scrolled');
         navbar.style.padding = '1rem 0';
@@ -2677,37 +2911,61 @@
         header.classList.remove('header-scrolled');
         navbar.style.padding = '1.5rem 0';
       }
-    });
+    }
 
-    // Mobile menu functionality
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    mobileMenuBtn.addEventListener('click', () => {
+    // Toggle mobile menu
+    function toggleMobileMenu() {
       hamburger.classList.toggle('open');
       navMenu.classList.toggle('active');
-    });
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    }
 
-    // Close mobile menu when clicking a link
+    // Close mobile menu
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      navMenu.classList.remove('active');
+      mobileOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Event listeners
+    window.addEventListener('scroll', handleScroll);
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+
+    // Handle link clicks
     navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        navMenu.classList.remove('active');
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        closeMobileMenu();
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
       });
     });
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 968) {
+        closeMobileMenu();
+      }
     });
+
+    // Initial scroll check
+    handleScroll();
   </script>
+
+ 
+  
+  
   <script>
     // Combined Intersection Observer configuration
 const observerOptions = {
