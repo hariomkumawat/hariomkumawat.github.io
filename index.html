@@ -22,6 +22,619 @@
       }
     </style>
   </noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- header style -->
+  <style>
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .header-scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-scrolled .nav-link {
+      color: #2d3748 !important;
+    }
+
+    .header-scrolled .navbar-brand {
+      color: #2d3748 !important;
+    }
+
+    .navbar {
+      padding: 1.5rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #4299e1;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #4299e1;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: #4299e1;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 100;
+    }
+
+    .hamburger {
+      width: 24px;
+      height: 20px;
+      position: relative;
+      transform: rotate(0deg);
+      transition: 0.5s ease-in-out;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: white;
+      border-radius: 9px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: 0.25s ease-in-out;
+    }
+
+    .header-scrolled .hamburger span {
+      background: #2d3748;
+    }
+
+    .hamburger span:nth-child(1) { top: 0px; }
+    .hamburger span:nth-child(2) { top: 8px; }
+    .hamburger span:nth-child(3) { top: 16px; }
+
+    .hamburger.open span:nth-child(1) {
+      top: 8px;
+      transform: rotate(135deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      left: -60px;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      top: 8px;
+      transform: rotate(-135deg);
+    }
+
+    @media (max-width: 968px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: 0.3s ease;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-menu.active {
+        right: 0;
+      }
+
+      .nav-link {
+        color: #2d3748;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+  <!-- profile style -->
+  <style>
+    .profile-header {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      color: #ffffff;
+    }
+
+    .header-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: transform 0.3s ease;
+      z-index: -1;
+    }
+
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+      z-index: -1;
+    }
+
+    .content-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .profile-image-container {
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .profile-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid #ffffff;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-image:hover {
+      transform: scale(1.05);
+    }
+
+    .profile-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .profile-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease 0.2s forwards;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: #4299e1;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease 0.4s forwards;
+    }
+
+    .cta-button:hover {
+      background: #2b6cb0;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(66, 153, 225, 0.4);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease 0.6s forwards;
+    }
+
+    .social-link {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .social-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Loading animation for images */
+    .lazy-load {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .lazy-load.loaded {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .profile-title {
+        font-size: 2.5rem;
+      }
+
+      .profile-image {
+        width: 150px;
+        height: 150px;
+      }
+
+      .social-links {
+        gap: 1rem;
+      }
+
+      .social-link {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  </style>
+
+  <!-- about style -->
+  <style>
+    .about-section {
+      padding: 6rem 0;
+      background: #ffffff;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .about-card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      padding: 3rem;
+      transition: transform 0.3s ease;
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: #2d3748;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: #4299e1;
+      border-radius: 2px;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .about-text {
+      color: #4a5568;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .info-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      align-items: center;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: #2d3748;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .info-value {
+      color: #4a5568;
+    }
+
+    .info-value a {
+      color: #4299e1;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .info-value a:hover {
+      color: #2b6cb0;
+    }
+
+    .highlight {
+      color: #4299e1;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .about-card {
+        padding: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* Animation classes */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <!-- experince style -->
+  <style>
+    .experience-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+        color: #2c3e50;
+        position: relative;
+    }
+    
+    .section-title:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: #3498db;
+        border-radius: 2px;
+    }
+    
+    .timeline {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .timeline::after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        background-color: #3498db;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+    }
+    
+    .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.6s ease;
+    }
+    
+    .timeline-item.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .timeline-item:nth-child(even) {
+        left: 50%;
+        transform: translateX(50px);
+    }
+    
+    .timeline-item:nth-child(even).visible {
+        transform: translateX(0);
+    }
+    
+    .timeline-content {
+        padding: 25px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+    
+    .timeline-content::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #3498db;
+        border: 4px solid white;
+        border-radius: 50%;
+        right: -60px;
+        top: 30px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content::after {
+        left: -60px;
+    }
+    
+    .date {
+        color: #3498db;
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .role {
+        color: #2c3e50;
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+    
+    .company {
+        color: #7f8c8d;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .description {
+        color: #34495e;
+        line-height: 1.6;
+    }
+    
+    .description ul {
+        padding-left: 20px;
+        margin-top: 10px;
+    }
+    
+    .description li {
+        margin-bottom: 8px;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .timeline::after {
+            left: 31px;
+        }
+        
+        .timeline-item {
+            width: 100%;
+            padding-left: 70px;
+            padding-right: 25px;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 0;
+        }
+        
+        .timeline-content::after {
+            left: -60px;
+            right: auto;
+        }
+    }
+    </style>
+  <!-- portfolio style -->
   <style>
     .portfolio-section {
       padding: 80px 0;
@@ -68,7 +681,7 @@
     }
     
     .tab-button.active {
-      background: #378C3F;
+      background: #3498db;
       color: white;
     }
     
@@ -127,7 +740,7 @@
     .portfolio-link {
       display: inline-block;
       margin-top: 20px;
-      color: #378C3F;
+      color: #3498db;
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s ease;
@@ -176,6 +789,7 @@
       border: none;
     }
   </style>
+
   <!-- skill style -->
   <style>
     .skills-container {
@@ -280,10 +894,536 @@
         animation: slideIn 0.5s ease-out forwards;
     }
     </style>
+    <!-- education style -->
+    <style>
+      .education-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 40px 20px;
+          font-family: 'Arial', sans-serif;
+      }
+      
+      .section-title {
+          text-align: center;
+          font-size: 2.5rem;
+          margin-bottom: 60px;
+          color: #2c3e50;
+          position: relative;
+      }
+      
+      .section-title:after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 4px;
+          background: #3498db;
+          border-radius: 2px;
+      }
+      
+      .education-timeline {
+          position: relative;
+          max-width: 1000px;
+          margin: 0 auto;
+      }
+      
+      .education-timeline::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 4px;
+          height: 100%;
+          background: #3498db;
+          border-radius: 2px;
+      }
+      
+      .education-item {
+          position: relative;
+          padding: 30px 0 30px 60px;
+          opacity: 0;
+          transform: translateX(30px);
+          transition: all 0.5s ease;
+      }
+      
+      .education-item.visible {
+          opacity: 1;
+          transform: translateX(0);
+      }
+      
+      .education-item::before {
+          content: '';
+          position: absolute;
+          left: -8px;
+          top: 35px;
+          width: 20px;
+          height: 20px;
+          background: white;
+          border: 4px solid #3498db;
+          border-radius: 50%;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      
+      .education-card {
+          background: white;
+          border-radius: 10px;
+          padding: 30px;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+          position: relative;
+      }
+      
+      .education-date {
+          display: inline-block;
+          padding: 6px 16px;
+          background: #3498db;
+          color: white;
+          border-radius: 20px;
+          font-size: 0.9rem;
+          margin-bottom: 15px;
+      }
+      
+      .education-degree {
+          font-size: 1.4rem;
+          color: #2c3e50;
+          margin-bottom: 10px;
+          font-weight: bold;
+      }
+      
+      .education-field {
+          font-size: 1.1rem;
+          color: #34495e;
+          margin-bottom: 10px;
+      }
+      
+      .education-school {
+          font-size: 1rem;
+          color: #7f8c8d;
+          margin-bottom: 5px;
+      }
+      
+      .education-location {
+          font-size: 0.9rem;
+          color: #95a5a6;
+          font-style: italic;
+      }
+      
+      @media screen and (max-width: 768px) {
+          .education-item {
+              padding-left: 45px;
+          }
+          
+          .education-card {
+              padding: 20px;
+          }
+          
+          .education-degree {
+              font-size: 1.2rem;
+          }
+      }
+      
+      .highlight {
+          color: #3498db;
+          font-weight: 500;
+      }
+      </style>
+      <!-- achivement style -->
+      <style>
+        .achievements-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #2c3e50;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .achievement-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .achievement-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .achievement-header {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .achievement-date {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .achievement-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .achievement-content {
+            padding: 25px;
+        }
+        
+        .achievement-subtitle {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .achievement-source {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .achievement-description {
+            color: #34495e;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .achievement-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .achievement-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: #f8f9fa;
+            color: #3498db;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        
+        .achievement-link:hover {
+            background: #e9ecef;
+        }
+        
+        .achievement-skills {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background: #e8f4fc;
+            color: #3498db;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        </style>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+          <!-- contect and footer style -->
+          <style>
+            .contact-section {
+              position: relative;
+              padding: 6rem 0;
+              background-color: #f8fafc;
+            }
+        
+            .map-background {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-image: url('images/staticmap.png');
+              background-size: cover;
+              background-position: center;
+              opacity: 0.1;
+              filter: grayscale(100%);
+            }
+        
+            .contact-container {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 2rem;
+              position: relative;
+              z-index: 1;
+            }
+        
+            .contact-card {
+              background: white;
+              border-radius: 20px;
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+              overflow: hidden;
+              transform: translateY(20px);
+              opacity: 0;
+              animation: slideUp 0.6s ease forwards;
+            }
+        
+            .contact-header {
+              text-align: center;
+              padding: 2rem 0;
+            }
+        
+            .contact-title {
+              font-size: 2.5rem;
+              color: #2d3748;
+              margin-bottom: 0.5rem;
+            }
+        
+            .contact-subtitle {
+              color: #4a5568;
+              font-size: 1.1rem;
+            }
+        
+            .contact-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 3rem;
+              padding: 3rem;
+            }
+        
+            .form-group {
+              margin-bottom: 1.5rem;
+            }
+        
+            .input-wrapper {
+              position: relative;
+              display: flex;
+              align-items: center;
+            }
+        
+            .input-icon {
+              position: absolute;
+              left: 1rem;
+              color: #4299e1;
+            }
+        
+            .form-input {
+              width: 100%;
+              padding: 1rem 1rem 1rem 3rem;
+              border: 2px solid #e2e8f0;
+              border-radius: 10px;
+              font-size: 1rem;
+              transition: all 0.3s ease;
+            }
+        
+            .form-input:focus {
+              border-color: #4299e1;
+              box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+              outline: none;
+            }
+        
+            textarea.form-input {
+              min-height: 150px;
+              padding-left: 1rem;
+            }
+        
+            .submit-btn {
+              background: #4299e1;
+              color: white;
+              border: none;
+              padding: 1rem 2rem;
+              border-radius: 10px;
+              font-size: 1rem;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            }
+        
+            .submit-btn:hover {
+              background: #2b6cb0;
+              transform: translateY(-2px);
+            }
+        
+            .contact-info {
+              display: flex;
+              flex-direction: column;
+              gap: 2rem;
+            }
+        
+            .info-item {
+              display: flex;
+              align-items: flex-start;
+              gap: 1rem;
+            }
+        
+            .info-icon {
+              width: 40px;
+              height: 40px;
+              background: #ebf8ff;
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #4299e1;
+              font-size: 1.2rem;
+            }
+        
+            .info-content {
+              flex: 1;
+            }
+        
+            .info-label {
+              font-weight: 600;
+              color: #2d3748;
+              margin-bottom: 0.5rem;
+            }
+        
+            .info-value {
+              color: #4a5568;
+              text-decoration: none;
+              transition: color 0.3s ease;
+            }
+        
+            .info-value:hover {
+              color: #4299e1;
+            }
+        
+            /* Footer Styles */
+            .footer {
+              background: #2d3748;
+              color: white;
+              padding: 4rem 0 2rem;
+            }
+        
+            .social-links {
+              display: flex;
+              justify-content: center;
+              gap: 1.5rem;
+              margin-bottom: 2rem;
+            }
+        
+            .social-link {
+              color: white;
+              font-size: 1.5rem;
+              transition: all 0.3s ease;
+            }
+        
+            .social-link:hover {
+              color: #4299e1;
+              transform: translateY(-3px);
+            }
+        
+            .footer-title {
+              font-size: 1.5rem;
+              text-align: center;
+              margin-bottom: 1rem;
+            }
+        
+            .footer-copyright {
+              text-align: center;
+              color: #a0aec0;
+              font-size: 0.9rem;
+            }
+        
+            .footer-link {
+              color: #4299e1;
+              text-decoration: none;
+              transition: color 0.3s ease;
+            }
+        
+            .footer-link:hover {
+              color: #2b6cb0;
+            }
+        
+            @keyframes slideUp {
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+        
+            @media (max-width: 768px) {
+              .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem;
+              }
+        
+              .contact-title {
+                font-size: 2rem;
+              }
+            }
+          </style>
 </head>
 
 <body id="top">
-  <header>
+  <!-- header section -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="#" class="navbar-brand">Hariom Kumawat</a>
+        
+        <button class="mobile-menu-btn">
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+
+        <ul class="nav-menu">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#skill" class="nav-link">Skills</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#Achievements" class="nav-link">Achievements</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- <header>
     <div class="profile-page sidebar-collapse">
       <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
         <div class="container">
@@ -307,58 +1447,102 @@
         </div>
       </nav>
     </div>
-  </header>
+  </header> -->
   <div class="page-content">
     <div>
-      <div class="profile-page">
-        <div class="wrapper">
-          <div class="page-header page-header-small" filter-color="green">
-            <!-- <div class="page-header-image" data-parallax="true" style="background-image: url('images/bg2.webp')"></div> -->
-            <link rel="preload" as="image" href="images/bg2.webp">
-      
-          <div class="page-header-image" data-parallax="true" 
-              style="background-image: url('images/bg2.webp')"
-              loading="lazy">
+      <!-- profile section -->
+      <div class="profile-header">
+        <div class="header-background lazy-load" data-src="images/bg2.webp"></div>
+        <div class="header-overlay"></div>
+        
+        <div class="content-wrapper">
+          <div class="profile-image-container">
+            <img 
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+              data-src="images/profile.jpg" 
+              alt="Hariom Kumawat's Profile Picture"
+              class="profile-image lazy-load"
+              width="180" 
+              height="180"
+            >
           </div>
-            <div class="container">
-              <div class="content-center">
-                <div class="cc-profile-image"><a href="#">
-                  <img src="images/profile.jpg" 
-                  alt="Hariom Kumawat's Profile Picture"
-                  width="150" 
-                  height="150"
-                  loading="lazy"/></a></div>
-                <div class="h2 title">Hariom Kumawat</div>
-                <p class="category text-white">Django Developer, Python Developer, Web Developer </p>
-
-                <!-- <a href="images/Hariomk.pdf" Download="Hariom's Resume">
-                  <button class="btn btn-primary" type="button"> Download CV </button>
-                </a> -->
-                <a href="#contact">
-                  <button class="btn btn-primary" type="button"> Contect Now </button>
-                </a>
+          
+          <h1 class="profile-title">Hariom Kumawat</h1>
+          <p class="profile-subtitle">Django Developer | Python Developer | Web Developer</p>
+          
+          <a href="#contact" class="cta-button">Contact Now</a>
+          
+          <div class="social-links">
+            <a href="https://github.com/hariomkumawat" class="social-link" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/hariom-kumawat-797ab420a/" class="social-link" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://twitter.com/Hariom78551675" class="social-link" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/hariom_.kumawat/" class="social-link" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!-- about section start -->
+      <section class="about-section" id="about">
+        <div class="container">
+          <div class="about-card fade-up">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+              <div class="about-description">
+                <p class="about-text">
+                  Hello! I'm <span class="highlight">Hariom Kumawat</span>, a passionate Python Developer, Django Developer, and Generative AI Engineer specializing in Web Development, AI, and Backend Engineering.
+                </p>
+                <p class="about-text">
+                  My expertise lies in building scalable and efficient web applications using <span class="highlight">Django, Flask, FastAPI, and DRF</span>. I've developed significant experience in Generative AI, working with LLMs, LangChain, and OpenAI to create cutting-edge AI-driven solutions.
+                </p>
+                <p class="about-text">
+                  I'm proficient in cloud technologies, particularly <span class="highlight">AWS (EC2, S3, RDS)</span>, and have extensive experience with PostgreSQL, MySQL, and version control using Git/GitHub.
+                </p>
+                <p class="about-text">
+                  I'm always eager to connect, collaborate, and share insights with fellow tech enthusiasts. Let's explore opportunities together! 🚀
+                </p>
               </div>
-            </div>
-            <div class="section">
-              <div class="container">
-                <div class="button-container">
-                  <a class="btn btn-default btn-round btn-lg btn-icon" href="https://github.com/hariomkumawat"
-                    rel="tooltip" title="Follow me on Github"><i class="fa fa-github"></i></a><a
-                    class="btn btn-default btn-round btn-lg btn-icon"
-                    href="https://www.linkedin.com/in/hariom-kumawat-797ab420a/" rel="tooltip"
-                    title="Follow me on Linkedin"><i class="fa fa-linkedin"></i></a><a
-                    class="btn btn-default btn-round btn-lg btn-icon" href="https://twitter.com/Hariom78551675"
-                    rel="tooltip" title="Follow me on Twitter"><i class="fa fa-twitter"></i></a><a
-                    class="btn btn-default btn-round btn-lg btn-icon" href="https://www.instagram.com/hariom_.kumawat/"
-                    rel="tooltip" title="Follow me on Instagram"><i class="fa fa-instagram"></i></a>
+              
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Age</span>
+                  <span class="info-value">22</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Email</span>
+                  <span class="info-value">
+                    <a href="mailto:er.hariomkumawat@gmail.com">er.hariomkumawat@gmail.com</a>
+                  </span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Phone</span>
+                  <span class="info-value">
+                    <a href="tel:+918085446961">+91 (808) 544-6961</a>
+                  </span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Location</span>
+                  <span class="info-value">Indore, M.P.</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Languages</span>
+                  <span class="info-value">Hindi, English</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      
-      <div class="section" id="about">
+      </section>
+
+      <!-- <div class="section" id="about">
         <div class="container">
           <div class="card" data-aos="fade-up" data-aos-offset="10">
             <div class="row">
@@ -409,9 +1593,63 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
+      <!-- about section end -->
 
-      <div class="section" id="experience">
+      <!-- experince section -->
+      <div class="experience-container" id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="date">March 2024 – December 2024</div>
+                    <div class="role">Python, Gen AI Developer</div>
+                    <div class="company">Steve's AI Lab.</div>
+                    <div class="description">
+                        <ul>
+                            <li>Developed RAG-based chatbots using LangChain and Pinecone, achieving 90% faster query processing through efficient retrieval and response mechanisms.</li>
+                            <li>Designed and deployed 40+ REST APIs with Django & DRF, efficiently handling 50,000+ user entries and 100,000+ vector entries in PostgreSQL.</li>
+                            <li>Integrated OpenAI models for conversational AI, enhancing chatbot accuracy by 90% through fine-tuned model optimization.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="date">January 2024 - March 2024</div>
+                    <div class="role">Python Developer</div>
+                    <div class="company">Sasefied</div>
+                    <div class="description">
+                        <ul>
+                            <li>Developed a medical chatbot to assist users with health-related queries, improving engagement by 25% through intelligent response handling and NLP integration.</li>
+                            <li>Designed and implemented a doctor appointment system, optimizing scheduling efficiency and reducing errors by 30%.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="date">April 2022 - December 2023</div>
+                    <div class="role">Web Development Trainer</div>
+                    <div class="company">Insta Dot Analytics</div>
+                    <div class="description">
+                        <ul>
+                            <li>Writing and testing code in Python and Django</li>
+                            <li>Debugging and troubleshooting issues in code</li>
+                            <li>Learning about new technologies and programming languages</li>
+                            <li>Collaborating with development teams and conducting code reviews</li>
+                            <li>Assisting in the design and development of new features</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- <div class="section" id="experience">
         <div class="container cc-experience">
           <div class="portfolio-title">Work Experience</div>
           <div class="card">
@@ -477,7 +1715,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- skill section -->
       <div class="skills-container" id="skill">
@@ -1127,7 +2365,44 @@
 
 <!-- portfolio section end -->
 
-      <div class="section" id="education">
+      <!-- education section -->
+      <div class="education-container" id="education">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="education-timeline">
+            <div class="education-item">
+                <div class="education-card">
+                    <div class="education-date">2022 - 2025</div>
+                    <div class="education-degree">Bachelor's Degree</div>
+                    <div class="education-field">Computer Science & Engineering</div>
+                    <div class="education-school">RGPV University</div>
+                    <div class="education-location">Shri Guru Sandipani Institute of Technology And Science, Ujjain M.P.</div>
+                </div>
+            </div>
+    
+            <div class="education-item">
+                <div class="education-card">
+                    <div class="education-date">2019 - 2022</div>
+                    <div class="education-degree">Polytechnic Diploma</div>
+                    <div class="education-field">Computer Science & Engineering</div>
+                    <div class="education-school">RGPV University</div>
+                    <div class="education-location">GT Polytechnic College Jaora (Ratlam)</div>
+                </div>
+            </div>
+    
+            <div class="education-item">
+                <div class="education-card">
+                    <div class="education-date">2015 - 2019</div>
+                    <div class="education-degree">High School</div>
+                    <div class="education-field">Science and Mathematics</div>
+                    <div class="education-school">School of Secondary board MP</div>
+                    <div class="education-location">School Of Excellence, Mandsour M.P.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- <div class="section" id="education">
         <div class="container cc-education">
           <div class="portfolio-title">Education</div>
           <div class="card">
@@ -1182,228 +2457,205 @@
             </div>
           </div>
         </div>
+      </div> -->
+      <!-- education section end -->
+
+    <!--achivement section  -->
+    <div class="achievements-container" id="Achievements">
+      <h2 class="section-title">Achievements & Certifications</h2>
+      
+      <div class="achievements-grid">
+          <!-- Problem Solving Achievement -->
+          <div class="achievement-card">
+              <div class="achievement-header">
+                  <div class="achievement-title">Problem Solving Excellence</div>
+              </div>
+              <div class="achievement-content">
+                  <div class="achievement-subtitle">CodeChef Achievements</div>
+                  <div class="achievement-description">
+                      Successfully completed 100+ CodeChef programming challenges, demonstrating proficiency in algorithms, data structures, and problem-solving.
+                  </div>
+                  <div class="achievement-links">
+                      <a href="https://www.codechef.com/users/hariomkumawat" class="achievement-link" target="_blank">CodeChef Profile</a>
+                      <a href="https://github.com/hariomkumawat" class="achievement-link" target="_blank">GitHub Profile</a>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Django Masterclass -->
+          <div class="achievement-card">
+              <div class="achievement-header">
+                  <div class="achievement-date">May 30, 2022</div>
+                  <div class="achievement-title">Django 4 and Python Full-Stack Developer Masterclass</div>
+              </div>
+              <div class="achievement-content">
+                  <div class="achievement-source">Udemy Certification</div>
+                  <div class="achievement-description">
+                      Comprehensive full-stack development course covering HTML, Bootstrap, CSS, Django, and database management.
+                  </div>
+                  <div class="achievement-skills">
+                      <span class="skill-tag">Django</span>
+                      <span class="skill-tag">Python</span>
+                      <span class="skill-tag">HTML/CSS</span>
+                      <span class="skill-tag">Bootstrap</span>
+                  </div>
+                  <div class="achievement-links">
+                      <a href="https://www.udemy.com/certificate/UC-0843d7ff-e316-4109-9813-51aeb0d79bb4/" class="achievement-link" target="_blank">View Certificate</a>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Django Essential Training -->
+          <div class="achievement-card">
+              <div class="achievement-header">
+                  <div class="achievement-date">December 9, 2022</div>
+                  <div class="achievement-title">Django Essential Training</div>
+              </div>
+              <div class="achievement-content">
+                  <div class="achievement-source">LinkedIn Learning</div>
+                  <div class="achievement-description">
+                      Advanced training in Django framework, covering HTTP requests, authentication systems, and dynamic template creation.
+                  </div>
+                  <div class="achievement-skills">
+                      <span class="skill-tag">Django</span>
+                      <span class="skill-tag">Authentication</span>
+                      <span class="skill-tag">Templates</span>
+                  </div>
+                  <div class="achievement-links">
+                      <a href="https://www.linkedin.com/learning/certificates/ddec029c5bf8c00031741fbcb958803a1dfd0b01fdcd4f6147eaca9d54739520" class="achievement-link" target="_blank">View Certificate</a>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Python Bootcamp -->
+          <div class="achievement-card">
+              <div class="achievement-header">
+                  <div class="achievement-date">October 02, 2021</div>
+                  <div class="achievement-title">Python Programming Complete Beginners Course</div>
+              </div>
+              <div class="achievement-content">
+                  <div class="achievement-source">Udemy Certification</div>
+                  <div class="achievement-description">
+                      Mastered Python 3.x fundamentals including OOP, data collections, error handling, and functional programming.
+                  </div>
+                  <div class="achievement-skills">
+                      <span class="skill-tag">Python 3</span>
+                      <span class="skill-tag">OOP</span>
+                      <span class="skill-tag">Error Handling</span>
+                  </div>
+                  <div class="achievement-links">
+                      <a href="https://www.udemy.com/certificate/UC-e879de93-46bc-42e8-9e3f-d8cf176b1780/" class="achievement-link" target="_blank">View Certificate</a>
+                  </div>
+              </div>
+          </div>
       </div>
+    </div>
 
-      <div class="section" id="Achievements">
-        <div class="container cc-education">
-          <div class="portfolio-title">Achievements & Certificate</div>
-          <div class="card">
-            <div class="row">
-              <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                <div class="card-body cc-education-header">
-                  <!-- <p>May 30, 2022</p> -->
-                  <div class="h5">Problem Solve</div>
-                </div>
-              </div>
-              <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                <div class="card-body">
-                  <div class="h5">CodeChef: Successfully completed 100+ CodeChef programming challenges, demonstrating
-                    proficiency in algorithms, data
-                    structures, and problem-solving.
-                    <br>
-                    **Online Profiles:** <a href="https://www.codechef.com/users/hariomkumawat">Codechef</a> And <a
-                      href="https://github.com/hariomkumawat">GitHub</a>
-                  </div>
+   
 
-                  <!-- <p class="category"> Codechef </p>
-                    <p>Learn to use HTML.
-                      Create responsive layouts with Bootstrap.
-                      Style your website with CSS.
-                      Understand static website elements like HTML, CSS, and landing pages.
-                      Learn to use Django function based views.
-                      Use the Django Template Language to interact with the front-end from Django.
-                      Use Django Models to interact with SQL backend databases.
-                      Learn to use advanced class based views to quickly create websites.
-                      Use Django's built-in authentication and administration systems
-                      Learn to use Django Forms.
-                      Create relationships between model tables in the database.</p> -->
-                </div>
+
+<!-- contect section  -->
+
+  <section class="contact-section" id="contact">
+    <div class="map-background"></div>
+    <div class="contact-container">
+      <div class="contact-card">
+        <div class="contact-header">
+          <h2 class="contact-title">Contact Me</h2>
+          <p class="contact-subtitle">Feel free to reach out</p>
+        </div>
+        
+        <div class="contact-grid">
+          <form action="https://formspree.io/f/xwkgpggv" method="POST">
+            <div class="form-group">
+              <div class="input-wrapper">
+                <i class="fas fa-user input-icon"></i>
+                <input type="text" class="form-input" name="name" placeholder="Your Name" required>
               </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="row">
-              <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                <div class="card-body cc-education-header">
-                  <p>May 30, 2022</p>
-                  <div class="h5">Django 4 and Python Full-Stack Developer
-                    Masterclass</div>
-                </div>
-              </div>
-              <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                <div class="card-body">
-                  <div class="h5">Django 4 and Python Full-Stack Developer
-                    Masterclass - <a
-                      href="https://www.udemy.com/certificate/UC-0843d7ff-e316-4109-9813-51aeb0d79bb4/">Udemy</a> </div>
-                  <p class="category"> Udemy </p>
-                  <p>Learn to use HTML.
-                    Create responsive layouts with Bootstrap.
-                    Style your website with CSS.
-                    Understand static website elements like HTML, CSS, and landing pages.
-                    Learn to use Django function based views.
-                    Use the Django Template Language to interact with the front-end from Django.
-                    Use Django Models to interact with SQL backend databases.
-                    Learn to use advanced class based views to quickly create websites.
-                    Use Django's built-in authentication and administration systems
-                    Learn to use Django Forms.
-                    Create relationships between model tables in the database.</p>
-                </div>
+            
+            <div class="form-group">
+              <div class="input-wrapper">
+                <i class="fas fa-bookmark input-icon"></i>
+                <input type="text" class="form-input" name="Subject" placeholder="Subject" required>
               </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="row">
-              <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                <div class="card-body cc-education-header">
-                  <p>December 9, 2022</p>
-                  <div class="h5">Django Essential Training</div>
-                </div>
-              </div>
-              <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                <div class="card-body">
-                  <div class="h5">Django Essential Training - <a
-                      href="https://www.linkedin.com/learning/certificates/ddec029c5bf8c00031741fbcb958803a1dfd0b01fdcd4f6147eaca9d54739520?li_theme=light">Linkedin</a>
-                  </div>
-                  <p class="category"> Linkedin </p>
-                  <p>Django is a robust and powerful framework with a lot of moving parts. Although starting a new
-                    project can be quite easy,
-                    there is a lot to uncover. This course teaches fundamentals, such as what a framework is, what an
-                    HTTP request is, and
-                    how Django replies to HTTP requests. Software developer and podcaster Leticia Portella walks you
-                    through each step of
-                    building a working system that can create, edit, and list books per user with an authentication
-                    system. Topics include
-                    getting started, creating users and data, ORMs, creating a dynamic template, Django class-based
-                    files and static views,
-                    and so much more!
-                  </p>
-                </div>
+            
+            <div class="form-group">
+              <div class="input-wrapper">
+                <i class="fas fa-envelope input-icon"></i>
+                <input type="email" class="form-input" name="_replyto" placeholder="Your Email" required>
               </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="row">
-              <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                <div class="card-body cc-education-header">
-                  <p>October 02, 2021</p>
-                  <div class="h5"> Python Programming Complete Beginners Course Bootcamp 2022</div>
-                </div>
+            
+            <div class="form-group">
+              <textarea class="form-input" name="message" placeholder="Your Message" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+              Send Message
+            </button>
+          </form>
+          
+          <div class="contact-info">
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
               </div>
-              <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                <div class="card-body">
-                  <div class="h5"> Python Programming Complete Beginners Course Bootcamp 2022 - <a
-                      href="https://www.udemy.com/certificate/UC-e879de93-46bc-42e8-9e3f-d8cf176b1780/">Udemy</a>
-                  </div>
-                  <p class="category"> Udemy </p>
-                  <p>Learn Python from ZERO on the latest version -> Python 3.x.
-                    Learn Python From A Real Team Lead that currently works in the IT industry.
-                    Learn how to use Object Oriented Programming - OOP.
-                    Learn how to use Data collections, variables, lists, if statements, error handling and much more.
-                    Learn to Test, Debug and Handle Errors in your Python programs
-                    Learn Functional Programming.
-                    Structured learning - each Topic is braken down into small indepth explanations.
-                    Learn How to write code in the right way, Use Global Coding Conventions.</p>
-                </div>
+              <div class="info-content">
+                <div class="info-label">Address</div>
+                <div class="info-value">Indore, M.P.</div>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="info-content">
+                <div class="info-label">Phone</div>
+                <a href="tel:+918085446961" class="info-value">+91 (808) 544-6961</a>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-content">
+                <div class="info-label">Email</div>
+                <a href="mailto:er.hariomkumawat@gmail.com" class="info-value">er.hariomkumawat@gmail.com</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
-
-
-
-      <div class="section" id="contact">
-        <div class="cc-contact-information" style="background-image: url('images/staticmap.png')">
-          <div class="container">
-            <div class="cc-contact">
-              <div class="row">
-                <div class="col-md-9">
-                  <div class="card mb-0" data-aos="zoom-in">
-                    <div class="h4 text-center title">Contact Me</div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="card-body">
-                          <form action="https://formspree.io/f/xwkgpggv" method="POST">
-                            <div class="p pb-3"><strong>Feel free to contact me </strong></div>
-                            <div class="row mb-3">
-                              <div class="col">
-                                <div class="input-group"><span class="input-group-addon"><i
-                                      class="fa fa-user-circle"></i></span>
-                                  <input class="form-control" type="text" name="name" placeholder="Name"
-                                    required="required" />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row mb-3">
-                              <div class="col">
-                                <div class="input-group"><span class="input-group-addon"><i
-                                      class="fa fa-file-text"></i></span>
-                                  <input class="form-control" type="text" name="Subject" placeholder="Subject"
-                                    required="required" />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row mb-3">
-                              <div class="col">
-                                <div class="input-group"><span class="input-group-addon"><i
-                                      class="fa fa-envelope"></i></span>
-                                  <input class="form-control" type="email" name="_replyto" placeholder="E-mail"
-                                    required="required" />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row mb-3">
-                              <div class="col">
-                                <div class="form-group">
-                                  <textarea class="form-control" name="message" placeholder="Your Message"
-                                    required="required"></textarea>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col">
-                                <button class="btn btn-primary" type="submit">Send</button>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="card-body">
-                          <p class="mb-0"><strong>Address </strong></p>
-                          <p class="pb-2">Indore, M.P.</p>
-                          <p class="mb-0"><strong>Phone</strong></p>
-                          <p class="pb-2"><a href="tel:+91 8085446961">+91 (808) 544-6961</a></p>
-                          <p class="mb-0"><strong>Email</strong></p>
-                          <p><a href="mailto: er.hariomkumawat@gmail.com">er.hariomkumawat@gmail.com</a></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
+  </section>
     </div>
   </div>
   <footer class="footer">
-    <div class="container text-center">
-      <a class="cc-instagram btn btn-link" href="https://github.com/hariomkumawat"><i class="fa fa-github fa-2x "
-          aria-hidden="true"></i></a>
-      <a class="cc-facebook btn btn-link" href="https://www.linkedin.com/in/hariom-kumawat-797ab420a/"><i
-          class="fa fa-linkedin fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link "
-        href="https://twitter.com/Hariom78551675"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a
-        class="cc-google-plus btn btn-link" href="https://www.instagram.com/hariom_.kumawat/"><i
-          class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+    <div class="social-links">
+      <a href="https://github.com/hariomkumawat" class="social-link" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/hariom-kumawat-797ab420a/" class="social-link" title="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://twitter.com/Hariom78551675" class="social-link" title="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.instagram.com/hariom_.kumawat/" class="social-link" title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
     </div>
-    <div class="h4 title text-center">Hariom Kumawat</div>
-    <div class="text-center text-muted">
-      <p>&copy; Creative CV. All rights reserved.<br>Design - <a class="credit" href="#"
-          target="_blank">HariomKumawat</a></p>
+    
+    <h3 class="footer-title">Hariom Kumawat</h3>
+    
+    <div class="footer-copyright">
+      <p>&copy; 2024 All rights reserved.<br>
+        Designed by <a href="#" class="footer-link">HariomKumawat</a>
+      </p>
     </div>
   </footer>
   <script src="js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
@@ -1412,6 +2664,244 @@
   <script src="js/now-ui-kit.js?ver=1.1.0"></script>
   <script src="js/aos.js?ver=1.1.0"></script>
   <script src="scripts/main.js?ver=1.1.0"></script>
+  <script>
+    // Handle scroll effects
+    const header = document.querySelector('.header');
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('header-scrolled');
+        navbar.style.padding = '1rem 0';
+      } else {
+        header.classList.remove('header-scrolled');
+        navbar.style.padding = '1.5rem 0';
+      }
+    });
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+  <script>
+    // Combined Intersection Observer configuration
+const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// Initialize animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all elements that need animation
+    const animatedElements = document.querySelectorAll(
+        '.fade-up, .timeline-item, .education-item, .achievement-card'
+    );
+    
+    // Observe each element
+    animatedElements.forEach(element => observer.observe(element));
+});
+  </script>
+  
+  <script>
+    // Lazy loading for images
+    document.addEventListener('DOMContentLoaded', () => {
+      const lazyImages = document.querySelectorAll('.lazy-load');
+      
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.tagName === 'IMG') {
+              img.src = img.dataset.src;
+            } else {
+              img.style.backgroundImage = `url(${img.dataset.src})`;
+            }
+            img.classList.add('loaded');
+            observer.unobserve(img);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+      });
+      
+      lazyImages.forEach(img => imageObserver.observe(img));
+    });
+
+    // Parallax effect for background
+    document.addEventListener('mousemove', (e) => {
+      const background = document.querySelector('.header-background');
+      const xPos = (e.clientX / window.innerWidth - 0.5) * 20;
+      const yPos = (e.clientY / window.innerHeight - 0.5) * 20;
+      background.style.transform = `translate(${xPos}px, ${yPos}px)`;
+    });
+  </script>
+
+  <!-- <script>
+    // Intersection Observer for fade-up animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.fade-up').forEach(element => {
+      observer.observe(element);
+    });
+  </script> -->
+
+  <!-- <script>
+    // Intersection Observer for timeline items
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all timeline items
+    document.addEventListener('DOMContentLoaded', () => {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach(item => observer.observe(item));
+    });
+    </script> -->
+
+<!-- <script>
+  // Intersection Observer for education items
+  const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+          }
+      });
+  }, observerOptions);
+  
+  // Observe all education items
+  document.addEventListener('DOMContentLoaded', () => {
+      const educationItems = document.querySelectorAll('.education-item');
+      educationItems.forEach(item => observer.observe(item));
+  });
+  </script> -->
+
+<!-- <script>
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// Observe all animated items when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all items that need animation
+    const animatedItems = document.querySelectorAll('.timeline-item, .education-item');
+    
+    // Observe each item
+    animatedItems.forEach(item => observer.observe(item));
+});
+</script>
+<script>
+  // Intersection Observer for achievement cards
+  const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+          }
+      });
+  }, observerOptions);
+  
+  // Observe all achievement cards
+  document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.achievement-card');
+      cards.forEach(card => observer.observe(card));
+  });
+  </script>  -->
+
+<!-- <script>
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// Observe all animated elements when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all items that need animation
+    const animatedElements = document.querySelectorAll(
+        '.timeline-item, .education-item, .achievement-card'
+    );
+    
+    // Observe each element
+    animatedElements.forEach(element => observer.observe(element));
+});
+</script> -->
+
 
   <script>
     // Animate progress bars when they come into view
@@ -1450,6 +2940,7 @@
       });
     });
     </script>
+
 
 
 </body>
