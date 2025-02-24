@@ -24,13 +24,17 @@
       }
     </style>
   </noscript>
-  
- 
+
+
+
 </head>
 
 <body id="top">
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
   <!-- header section -->
-   <header class="header">
+  <header class="header">
     <nav class="navbar">
       <div class="navbar-container">
         <div class="nav-wrapper">
@@ -55,9 +59,9 @@
         </ul>
       </div>
     </nav>
-     <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
   </header>
-  
+
   <!-- <header>
     <div class="profile-page sidebar-collapse">
       <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
@@ -89,24 +93,20 @@
       <div class="profile-header">
         <div class="header-background lazy-load" data-src="images/bg2.webp"></div>
         <div class="header-overlay"></div>
-        
+
         <div class="content-wrapper">
           <div class="profile-image-container">
-            <img 
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
-              data-src="images/profile.jpg" 
-              alt="Hariom Kumawat's Profile Picture"
-              class="profile-image lazy-load"
-              width="180" 
-              height="180"
-            >
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              data-src="images/profile.jpg" alt="Hariom Kumawat's Profile Picture" class="profile-image lazy-load"
+              width="180" height="180">
           </div>
-          
+
           <h1 class="profile-title">Hariom Kumawat</h1>
-          <p class="profile-subtitle">Python & Django Developer | Gen AI Developer  | Web Developer</p>
-          
+          <p class="profile-subtitle">Python & Django Developer | Gen AI Developer | Web & React.js Developer</p>
+
+
           <a href="#contact" class="cta-button">Contact Now</a>
-          
+
           <div class="social-links">
             <a href="https://github.com/hariomkumawat" class="social-link" title="GitHub">
               <i class="fab fa-github"></i>
@@ -123,8 +123,8 @@
           </div>
         </div>
       </div>
-      
-      
+
+
       <!-- about section start -->
       <section class="about-section" id="about">
         <div class="container">
@@ -133,19 +133,26 @@
             <div class="about-content">
               <div class="about-description">
                 <p class="about-text">
-                  Hello! I'm <span class="highlight">Hariom Kumawat</span>, a passionate Python Developer, Django Developer, and Generative AI Engineer specializing in Web Development, AI, and Backend Engineering.
+                  Hello! I'm <span class="highlight">Hariom Kumawat</span>, a passionate Python Developer, Django
+                  Developer, Generative AI Engineer, and React.js Developer specializing in Web Development, AI, and
+                  Backend Engineering.
                 </p>
                 <p class="about-text">
-                  My expertise lies in building scalable and efficient web applications using <span class="highlight">Django, Flask, FastAPI, and DRF</span>. I've developed significant experience in Generative AI, working with LLMs, LangChain, and OpenAI to create cutting-edge AI-driven solutions.
+                  My expertise lies in building scalable and efficient web applications using <span
+                    class="highlight">Django, Flask, FastAPI, and DRF</span>, along with frontend development using
+                  <span class="highlight">React.js</span>. I've developed significant experience in Generative AI,
+                  working with LLMs, LangChain, and OpenAI to create cutting-edge AI-driven solutions.
                 </p>
                 <p class="about-text">
-                  I'm proficient in cloud technologies, particularly <span class="highlight">AWS (EC2, S3, RDS)</span>, and have extensive experience with PostgreSQL, MySQL, and version control using Git/GitHub.
+                  I'm proficient in cloud technologies, particularly <span class="highlight">AWS (EC2, S3, RDS)</span>,
+                  and have extensive experience with PostgreSQL, MySQL, and version control using Git/GitHub.
                 </p>
                 <p class="about-text">
-                  I'm always eager to connect, collaborate, and share insights with fellow tech enthusiasts. Let's explore opportunities together! 🚀
+                  I'm always eager to connect, collaborate, and share insights with fellow tech enthusiasts. Let's
+                  explore opportunities together! 🚀
                 </p>
               </div>
-              
+
               <div class="info-grid">
                 <div class="info-item">
                   <span class="info-label">Age</span>
@@ -182,589 +189,636 @@
       <!-- experince section -->
       <div class="experience-container" id="experience">
         <h2 class="section-title">Work Experience</h2>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="date">March 2024 – December 2024</div>
-                    <div class="role">Python, Gen AI Developer</div>
-                    <div class="company">Steve's AI Lab.</div>
-                    <div class="description">
-                        <ul>
-                            <li>Developed RAG-based chatbots using LangChain and Pinecone, achieving 90% faster query processing through efficient retrieval and response mechanisms.</li>
-                            <li>Designed and deployed 40+ REST APIs with Django & DRF, efficiently handling 50,000+ user entries and 100,000+ vector entries in PostgreSQL.</li>
-                            <li>Integrated OpenAI models for conversational AI, enhancing chatbot accuracy by 90% through fine-tuned model optimization.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="date">January 2024 - March 2024</div>
-                    <div class="role">Python Developer</div>
-                    <div class="company">Sasefied</div>
-                    <div class="description">
-                        <ul>
-                            <li>Developed a medical chatbot to assist users with health-related queries, improving engagement by 25% through intelligent response handling and NLP integration.</li>
-                            <li>Designed and implemented a doctor appointment system, optimizing scheduling efficiency and reducing errors by 30%.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="date">April 2022 - December 2023</div>
-                    <div class="role">Web Development Trainer</div>
-                    <div class="company">Insta Dot Analytics</div>
-                    <div class="description">
-                        <ul>
-                            <li>Writing and testing code in Python and Django</li>
-                            <li>Debugging and troubleshooting issues in code</li>
-                            <li>Learning about new technologies and programming languages</li>
-                            <li>Collaborating with development teams and conducting code reviews</li>
-                            <li>Assisting in the design and development of new features</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="date">March 2024 – December 2024</div>
+              <div class="role">Python, Gen AI Developer</div>
+              <div class="company">Steve's AI Lab.</div>
+              <div class="description">
+                <ul>
+                  <li>Developed RAG-based chatbots using LangChain and Pinecone, achieving 90% faster query processing
+                    through efficient retrieval and response mechanisms.</li>
+                  <li>Designed and deployed 40+ REST APIs with Django & DRF, efficiently handling 50,000+ user entries
+                    and 100,000+ vector entries in PostgreSQL.</li>
+                  <li>Integrated OpenAI models for conversational AI, enhancing chatbot accuracy by 90% through
+                    fine-tuned model optimization.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="date">January 2024 - March 2024</div>
+              <div class="role">Python Developer</div>
+              <div class="company">Sasefied</div>
+              <div class="description">
+                <ul>
+                  <li>Developed a medical chatbot to assist users with health-related queries, improving engagement by
+                    25% through intelligent response handling and NLP integration.</li>
+                  <li>Designed and implemented a doctor appointment system, optimizing scheduling efficiency and
+                    reducing errors by 30%.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="date">April 2022 - December 2023</div>
+              <div class="role">Web Development Trainer</div>
+              <div class="company">Insta Dot Analytics</div>
+              <div class="description">
+                <ul>
+                  <li>Writing and testing code in Python and Django</li>
+                  <li>Debugging and troubleshooting issues in code</li>
+                  <li>Learning about new technologies and programming languages</li>
+                  <li>Collaborating with development teams and conducting code reviews</li>
+                  <li>Assisting in the design and development of new features</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <!-- skill section -->
       <div class="skills-container" id="skill">
         <h2 class="section-title">Professional Skills</h2>
         <div class="skills-grid">
-            <!-- Backend Development -->
-            <div class="skill-category backend">
-                <h3 class="category-title">Backend Development</h3>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">Python</span>
-                        <span class="skill-percentage">90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="90"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">Django</span>
-                        <span class="skill-percentage">85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="85"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">Flask</span>
-                        <span class="skill-percentage">75%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="75"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">FastAPI</span>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="80"></div>
-                    </div>
-                </div>
+          <!-- Backend Development -->
+          <div class="skill-category backend">
+            <h3 class="category-title">Backend Development</h3>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Python</span>
+                <span class="skill-percentage">90%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="90"></div>
+              </div>
             </div>
-    
-            <!-- AI & ML -->
-            <div class="skill-category ai-ml">
-                <h3 class="category-title">AI & Machine Learning</h3>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">Langchain</span>
-                        <span class="skill-percentage">85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="85"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">LLM & OpenAI</span>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="80"></div>
-                    </div>
-                </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Django</span>
+                <span class="skill-percentage">85%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="85"></div>
+              </div>
             </div>
-    
-            <!-- Frontend & Database -->
-            <div class="skill-category frontend-db">
-                <h3 class="category-title">Frontend & Database</h3>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">JavaScript</span>
-                        <span class="skill-percentage">70%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="70"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">PostgreSQL</span>
-                        <span class="skill-percentage">85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="85"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">Bootstrap</span>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="80"></div>
-                    </div>
-                </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Flask</span>
+                <span class="skill-percentage">75%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="75"></div>
+              </div>
             </div>
-    
-            <!-- DevOps & Tools -->
-            <div class="skill-category devops">
-                <h3 class="category-title">DevOps & Tools</h3>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">AWS (EC2, S3, RDS)</span>
-                        <span class="skill-percentage">70%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="70"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">Git & GitHub</span>
-                        <span class="skill-percentage">75%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="75"></div>
-                    </div>
-                </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">FastAPI</span>
+                <span class="skill-percentage">80%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="80"></div>
+              </div>
             </div>
-        </div>
-    </div>
+          </div>
 
-   
-<!-- portfolio section start -->
-<section class="portfolio-section" id="portfolio">
-  <div class="portfolio-container">
-    <h2 class="portfolio-title">My Portfolio</h2>
-    
-    <div class="portfolio-tabs">
-      <button class="tab-button active" data-tab="web">Web Development</button>
-      <!-- <button class="tab-button" data-tab="design">UI/UX Design</button> -->
-      <button class="tab-button" data-tab="photo">Photos/Demo Videos</button>
-    </div>
-    
-    <div class="tab-content active" id="web">
-      <div class="portfolio-grid">
-        <!-- E-Commerce Project -->
-        <div class="portfolio-item">
-          <img src="/images/e1.png" alt="E-Commerce Project" class="portfolio-image">
-          <div class="portfolio-content">
-            <h3 class="portfolio-title-small">E-Commerce Platform</h3>
-            <p>A full-featured e-commerce solution with modern design and seamless user experience.</p>
-            <div class="portfolio-tech">
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">SQLite3</span>
-              <span class="tech-tag">JavaScript</span>
+          <!-- AI & ML -->
+          <div class="skill-category ai-ml">
+            <h3 class="category-title">AI & Machine Learning</h3>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Langchain</span>
+                <span class="skill-percentage">85%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="85"></div>
+              </div>
             </div>
-            <a href="https://shopsite77.pythonanywhere.com/" class="portfolio-link">View Project →</a>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">LLM & OpenAI</span>
+                <span class="skill-percentage">80%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="80"></div>
+              </div>
+            </div>
           </div>
-        </div>
-        <!-- Chatbot -->
-          <div class="portfolio-item">
-          <img src="/images/chatbot.png" alt="E-Commerce Project" class="portfolio-image">
-          <div class="portfolio-content">
-            <h3 class="portfolio-title-small">RAG Based Chatbot </h3>
-            <p>RAG based chatbot using Pinecoin-langchain-with-openai</p>
-            <div class="portfolio-tech">
-              <span class="tech-tag">Flask</span>
-              <span class="tech-tag">OpenAI</span>
-              <span class="tech-tag">VectorDB-Pinecone</span>
-              <span class="tech-tag">Langchain</span>
+
+          <!-- Frontend -->
+          <div class="skill-category frontend">
+            <h3 class="category-title">Frontend</h3>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">React.js</span>
+                <span class="skill-percentage">70%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="70"></div>
+              </div>
             </div>
-            <a href="https://github.com/hariomkumawat/Chat-with-Documents-using-AI-OpenAI-GPT-Langchain-vecterdb--Faiss" class="portfolio-link">View Project →</a>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-percentage">70%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="70"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Bootstrap</span>
+                <span class="skill-percentage">80%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="80"></div>
+              </div>
+            </div>
           </div>
-        </div>
-        <!-- Tech Hub Project -->
-        <div class="portfolio-item">
-          <img src="/images/texh.png" alt="Tech Hub" class="portfolio-image">
-          <div class="portfolio-content">
-            <h3 class="portfolio-title-small">Tech Hub</h3>
-            <p>Technical interview preparation platform with comprehensive learning resources.</p>
-            <div class="portfolio-tech">
-              <span class="tech-tag">React.js</span>
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">Python</span>
+
+          <!-- Database -->
+          <div class="skill-category database">
+            <h3 class="category-title">Database</h3>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">PostgreSQL</span>
+                <span class="skill-percentage">85%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="85"></div>
+              </div>
             </div>
-            <a href="https://tech-hub-green.vercel.app/" class="portfolio-link">View Project →</a>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">MySQL</span>
+                <span class="skill-percentage">85%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="85"></div>
+              </div>
+            </div>
           </div>
-        </div>
-        <!-- algohaven Blog -->
-        <div class="portfolio-item">
-          <img src="/images/blog.png" alt="URL Shortener" class="portfolio-image">
-          <div class="portfolio-content">
-            <h3 class="portfolio-title-small">AlgoHaven Blog Web.</h3>
-            <p>A Blog Website in Wp</p>
-            <div class="portfolio-tech">
-              <span class="tech-tag">Wordpress</span>
-              <span class="tech-tag">HTML</span>
-              <span class="tech-tag">CSS</span>
-              <span class="tech-tag">JS</span>
-              <span class="tech-tag">Bootstrap</span>
+
+
+          <!-- DevOps & Tools -->
+          <div class="skill-category devops">
+            <h3 class="category-title">DevOps & Tools</h3>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">AWS (EC2, S3, RDS)</span>
+                <span class="skill-percentage">70%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="70"></div>
+              </div>
             </div>
-            <a href="https://algohaven.com/" class="portfolio-link">View Project →</a>
-          </div>
-        </div>
-        <!-- Car Rent Template -->
-        <div class="portfolio-item">
-          <img src="/images/carrent.png" alt="URL Shortener" class="portfolio-image">
-          <div class="portfolio-content">
-            <h3 class="portfolio-title-small">Car Rent Template</h3>
-            <p>A Car rent service Template with analytics and custom aliases.</p>
-            <div class="portfolio-tech">
-              <span class="tech-tag">HTML</span>
-              <span class="tech-tag">CSS</span>
-              <span class="tech-tag">JS</span>
-              <span class="tech-tag">Bootstrap</span>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Git & GitHub</span>
+                <span class="skill-percentage">75%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="75"></div>
+              </div>
             </div>
-            <a href="https://hariomkumawat.github.io/Car_Rent_Project_template.github.io/" class="portfolio-link">View Project →</a>
-          </div>
-        </div>
-        <!-- News app -->
-        <div class="portfolio-item">
-          <img src="/images/news.png" alt="URL Shortener" class="portfolio-image">
-          <div class="portfolio-content">
-            <h3 class="portfolio-title-small">News App</h3>
-            <p>A News Application in django with News Api.</p>
-            <div class="portfolio-tech">
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">News Api</span>
-            </div>
-            <a href="https://github.com/hariomkumawat/newsapp/" class="portfolio-link">View Project →</a>
-          </div>
-        </div>
-        <!-- URL Shortener Project -->
-        <div class="portfolio-item">
-          <img src="/images/urlshort.png" alt="URL Shortener" class="portfolio-image">
-          <div class="portfolio-content">
-            <h3 class="portfolio-title-small">URL Shortener</h3>
-            <p>A powerful URL shortening service with analytics and custom aliases.</p>
-            <div class="portfolio-tech">
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">SQLite3</span>
-            </div>
-            <a href="https://github.com/hariomkumawat/URL-Shortener-in-Django" class="portfolio-link">View Project →</a>
-          </div>
-        </div>
-        <!-- Iblog -->
-        <div class="portfolio-item">
-          <img src="/images/iblog.png" alt="URL Shortener" class="portfolio-image">
-          <div class="portfolio-content">
-            <h3 class="portfolio-title-small">IBlog Application in Django</h3>
-            <p>A powerful URL shortening service with analytics and custom aliases.</p>
-            <div class="portfolio-tech">
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">SQLite3</span>
-            </div>
-            <a href="https://github.com/hariomkumawat/blog" class="portfolio-link">View Project →</a>
           </div>
         </div>
       </div>
-    </div>
 
-  <!-- photo video section -->
 
-    <div class="tab-content" id="photo">
-      <div class="portfolio-grid">
-        <!-- Myshop -->
-        <div class="portfolio-item">
-          <div class="video-container">
-            <iframe 
-              src="https://www.youtube.com/embed/_veCfqNECUQ?si=cXPVK5WJhahIar6t" 
-              title="Project Demo Video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="portfolio-content">
-            <h3 class="portfolio-title-small">E-Commerce Platform</h3>
-            <p>A comprehensive video demonstration of key projects and their features.</p>
-            <a href="https://www.youtube.com/embed/_veCfqNECUQ?si=cXPVK5WJhahIar6t" class="portfolio-link">Watch Full Video →</a>
-          </div>
-        </div>
-        <!-- Rag chatbot -->
-        <div class="portfolio-item">
-          <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/dsPr0EgzMSA?si=nqzXTocyC_Wx7SH_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <div class="portfolio-content">
-            <h3 class="portfolio-title-small">RAG Based Chatbot</h3>
-            <p>A comprehensive video demonstration of key projects and their features.</p>
-            <a href="https://www.youtube.com/embed/dsPr0EgzMSA?si=nqzXTocyC_Wx7SH_" class="portfolio-link">Watch Full Video →</a>
-          </div>
-        </div>
-        <!-- iBLog -->
-        <div class="portfolio-item">
-          <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/9DT30ZTz-HU?si=817cYqoXa-e4fkFw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-          <div class="portfolio-content">
-            <h3 class="portfolio-title-small">IBlog Application in Django</h3>
-            <p>A comprehensive video demonstration of key projects and their features.</p>
-            <a href="https://www.youtube.com/embed/9DT30ZTz-HU?si=817cYqoXa-e4fkFw" class="portfolio-link">Watch Full Video →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- photo video section end-->
-    
-    <!-- disign section -->
-    <div class="tab-content" id="design">
-      <div class="portfolio-grid">
-        <!-- Design Projects Here -->
-      </div>
-    </div>
+      <!-- portfolio section start -->
+      <section class="portfolio-section" id="portfolio">
+        <div class="portfolio-container">
+          <h2 class="portfolio-title">My Portfolio</h2>
 
-    
-  </div>
-</section>
+          <div class="portfolio-tabs">
+            <button class="tab-button active" data-tab="web">Web Development</button>
+            <!-- <button class="tab-button" data-tab="design">UI/UX Design</button> -->
+            <button class="tab-button" data-tab="photo">Photos/Demo Videos</button>
+          </div>
+
+          <div class="tab-content active" id="web">
+            <div class="portfolio-grid">
+              <!-- E-Commerce Project -->
+              <div class="portfolio-item">
+                <img src="/images/e1.png" alt="E-Commerce Project" class="portfolio-image">
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title-small">E-Commerce Platform</h3>
+                  <p>A full-featured e-commerce solution with modern design and seamless user experience.</p>
+                  <div class="portfolio-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQLite3</span>
+                    <span class="tech-tag">JavaScript</span>
+                  </div>
+                  <a href="https://shopsite77.pythonanywhere.com/" class="portfolio-link">View Project →</a>
+                </div>
+              </div>
+              <!-- Chatbot -->
+              <div class="portfolio-item">
+                <img src="/images/chatbot.png" alt="E-Commerce Project" class="portfolio-image">
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title-small">RAG Based Chatbot </h3>
+                  <p>RAG based chatbot using Pinecoin-langchain-with-openai</p>
+                  <div class="portfolio-tech">
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">OpenAI</span>
+                    <span class="tech-tag">VectorDB-Pinecone</span>
+                    <span class="tech-tag">Langchain</span>
+                  </div>
+                  <a href="https://github.com/hariomkumawat/Chat-with-Documents-using-AI-OpenAI-GPT-Langchain-vecterdb--Faiss"
+                    class="portfolio-link">View Project →</a>
+                </div>
+              </div>
+              <!-- Tech Hub Project -->
+              <div class="portfolio-item">
+                <img src="/images/texh.png" alt="Tech Hub" class="portfolio-image">
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title-small">Tech Hub</h3>
+                  <p>Technical interview preparation platform with comprehensive learning resources.</p>
+                  <div class="portfolio-tech">
+                    <span class="tech-tag">React.js</span>
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Python</span>
+                  </div>
+                  <a href="https://tech-hub-green.vercel.app/" class="portfolio-link">View Project →</a>
+                </div>
+              </div>
+              <!-- algohaven Blog -->
+              <div class="portfolio-item">
+                <img src="/images/blog.png" alt="URL Shortener" class="portfolio-image">
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title-small">AlgoHaven Blog Web.</h3>
+                  <p>A Blog Website in Wp</p>
+                  <div class="portfolio-tech">
+                    <span class="tech-tag">Wordpress</span>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JS</span>
+                    <span class="tech-tag">Bootstrap</span>
+                  </div>
+                  <a href="https://algohaven.com/" class="portfolio-link">View Project →</a>
+                </div>
+              </div>
+              <!-- Car Rent Template -->
+              <div class="portfolio-item">
+                <img src="/images/carrent.png" alt="URL Shortener" class="portfolio-image">
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title-small">Car Rent Template</h3>
+                  <p>A Car rent service Template with analytics and custom aliases.</p>
+                  <div class="portfolio-tech">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JS</span>
+                    <span class="tech-tag">Bootstrap</span>
+                  </div>
+                  <a href="https://hariomkumawat.github.io/Car_Rent_Project_template.github.io/"
+                    class="portfolio-link">View Project →</a>
+                </div>
+              </div>
+              <!-- News app -->
+              <div class="portfolio-item">
+                <img src="/images/news.png" alt="URL Shortener" class="portfolio-image">
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title-small">News App</h3>
+                  <p>A News Application in django with News Api.</p>
+                  <div class="portfolio-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">News Api</span>
+                  </div>
+                  <a href="https://github.com/hariomkumawat/newsapp/" class="portfolio-link">View Project →</a>
+                </div>
+              </div>
+              <!-- URL Shortener Project -->
+              <div class="portfolio-item">
+                <img src="/images/urlshort.png" alt="URL Shortener" class="portfolio-image">
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title-small">URL Shortener</h3>
+                  <p>A powerful URL shortening service with analytics and custom aliases.</p>
+                  <div class="portfolio-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQLite3</span>
+                  </div>
+                  <a href="https://github.com/hariomkumawat/URL-Shortener-in-Django" class="portfolio-link">View Project
+                    →</a>
+                </div>
+              </div>
+              <!-- Iblog -->
+              <div class="portfolio-item">
+                <img src="/images/iblog.png" alt="URL Shortener" class="portfolio-image">
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title-small">IBlog Application in Django</h3>
+                  <p>A powerful URL shortening service with analytics and custom aliases.</p>
+                  <div class="portfolio-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQLite3</span>
+                  </div>
+                  <a href="https://github.com/hariomkumawat/blog" class="portfolio-link">View Project →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- photo video section -->
+
+          <div class="tab-content" id="photo">
+            <div class="portfolio-grid">
+              <!-- Myshop -->
+              <div class="portfolio-item">
+                <div class="video-container">
+                  <iframe src="https://www.youtube.com/embed/_veCfqNECUQ?si=cXPVK5WJhahIar6t" title="Project Demo Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title-small">E-Commerce Platform</h3>
+                  <p>A comprehensive video demonstration of key projects and their features.</p>
+                  <a href="https://www.youtube.com/embed/_veCfqNECUQ?si=cXPVK5WJhahIar6t" class="portfolio-link">Watch
+                    Full Video →</a>
+                </div>
+              </div>
+              <!-- Rag chatbot -->
+              <div class="portfolio-item">
+                <div class="video-container">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/dsPr0EgzMSA?si=nqzXTocyC_Wx7SH_"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title-small">RAG Based Chatbot</h3>
+                  <p>A comprehensive video demonstration of key projects and their features.</p>
+                  <a href="https://www.youtube.com/embed/dsPr0EgzMSA?si=nqzXTocyC_Wx7SH_" class="portfolio-link">Watch
+                    Full Video →</a>
+                </div>
+              </div>
+              <!-- iBLog -->
+              <div class="portfolio-item">
+                <div class="video-container">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/9DT30ZTz-HU?si=817cYqoXa-e4fkFw"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="portfolio-content">
+                  <h3 class="portfolio-title-small">IBlog Application in Django</h3>
+                  <p>A comprehensive video demonstration of key projects and their features.</p>
+                  <a href="https://www.youtube.com/embed/9DT30ZTz-HU?si=817cYqoXa-e4fkFw" class="portfolio-link">Watch
+                    Full Video →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- photo video section end-->
+
+          <!-- disign section -->
+          <div class="tab-content" id="design">
+            <div class="portfolio-grid">
+              <!-- Design Projects Here -->
+            </div>
+          </div>
+
+
+        </div>
+      </section>
       <!--  -->
 
 
-<!-- portfolio section end -->
+      <!-- portfolio section end -->
 
       <!-- education section -->
       <div class="education-container" id="education">
         <h2 class="section-title">Education</h2>
-        
-        <div class="education-timeline">
-            <div class="education-item">
-                <div class="education-card">
-                    <div class="education-date">2022 - 2025</div>
-                    <div class="education-degree">Bachelor's Degree</div>
-                    <div class="education-field">Computer Science & Engineering</div>
-                    <div class="education-school">RGPV University</div>
-                    <div class="education-location">Shri Guru Sandipani Institute of Technology And Science, Ujjain M.P.</div>
-                </div>
-            </div>
-    
-            <div class="education-item">
-                <div class="education-card">
-                    <div class="education-date">2019 - 2022</div>
-                    <div class="education-degree">Polytechnic Diploma</div>
-                    <div class="education-field">Computer Science & Engineering</div>
-                    <div class="education-school">RGPV University</div>
-                    <div class="education-location">GT Polytechnic College Jaora (Ratlam)</div>
-                </div>
-            </div>
-    
-            <div class="education-item">
-                <div class="education-card">
-                    <div class="education-date">2015 - 2019</div>
-                    <div class="education-degree">High School</div>
-                    <div class="education-field">Science and Mathematics</div>
-                    <div class="education-school">School of Secondary board MP</div>
-                    <div class="education-location">School Of Excellence, Mandsour M.P.</div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    
+        <div class="education-timeline">
+          <div class="education-item">
+            <div class="education-card">
+              <div class="education-date">2022 - 2025</div>
+              <div class="education-degree">Bachelor's Degree</div>
+              <div class="education-field">Computer Science & Engineering</div>
+              <div class="education-school">RGPV University</div>
+              <div class="education-location">Shri Guru Sandipani Institute of Technology And Science, Ujjain M.P.</div>
+            </div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-card">
+              <div class="education-date">2019 - 2022</div>
+              <div class="education-degree">Polytechnic Diploma</div>
+              <div class="education-field">Computer Science & Engineering</div>
+              <div class="education-school">RGPV University</div>
+              <div class="education-location">GT Polytechnic College Jaora (Ratlam)</div>
+            </div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-card">
+              <div class="education-date">2015 - 2019</div>
+              <div class="education-degree">High School</div>
+              <div class="education-field">Science and Mathematics</div>
+              <div class="education-school">School of Secondary board MP</div>
+              <div class="education-location">School Of Excellence, Mandsour M.P.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <!-- education section end -->
 
-    <!--achivement section  -->
-    <div class="achievements-container" id="Achievements">
-      <h2 class="section-title">Achievements & Certifications</h2>
-      
-      <div class="achievements-grid">
+      <!--achivement section  -->
+      <div class="achievements-container" id="Achievements">
+        <h2 class="section-title">Achievements & Certifications</h2>
+
+        <div class="achievements-grid">
           <!-- Problem Solving Achievement -->
           <div class="achievement-card">
-              <div class="achievement-header">
-                  <div class="achievement-title">Problem Solving Excellence</div>
+            <div class="achievement-header">
+              <div class="achievement-title">Problem Solving Excellence</div>
+            </div>
+            <div class="achievement-content">
+              <div class="achievement-subtitle">CodeChef Achievements</div>
+              <div class="achievement-description">
+                Successfully completed 100+ CodeChef programming challenges, demonstrating proficiency in algorithms,
+                data structures, and problem-solving.
               </div>
-              <div class="achievement-content">
-                  <div class="achievement-subtitle">CodeChef Achievements</div>
-                  <div class="achievement-description">
-                      Successfully completed 100+ CodeChef programming challenges, demonstrating proficiency in algorithms, data structures, and problem-solving.
-                  </div>
-                  <div class="achievement-links">
-                      <a href="https://www.codechef.com/users/hariomkumawat" class="achievement-link" target="_blank">CodeChef Profile</a>
-                      <a href="https://github.com/hariomkumawat" class="achievement-link" target="_blank">GitHub Profile</a>
-                  </div>
+              <div class="achievement-links">
+                <a href="https://www.codechef.com/users/hariomkumawat" class="achievement-link" target="_blank">CodeChef
+                  Profile</a>
+                <a href="https://github.com/hariomkumawat" class="achievement-link" target="_blank">GitHub Profile</a>
               </div>
+            </div>
           </div>
-  
+
           <!-- Django Masterclass -->
           <div class="achievement-card">
-              <div class="achievement-header">
-                  <div class="achievement-date">May 30, 2022</div>
-                  <div class="achievement-title">Django 4 and Python Full-Stack Developer Masterclass</div>
+            <div class="achievement-header">
+              <div class="achievement-date">May 30, 2022</div>
+              <div class="achievement-title">Django 4 and Python Full-Stack Developer Masterclass</div>
+            </div>
+            <div class="achievement-content">
+              <div class="achievement-source">Udemy Certification</div>
+              <div class="achievement-description">
+                Comprehensive full-stack development course covering HTML, Bootstrap, CSS, Django, and database
+                management.
               </div>
-              <div class="achievement-content">
-                  <div class="achievement-source">Udemy Certification</div>
-                  <div class="achievement-description">
-                      Comprehensive full-stack development course covering HTML, Bootstrap, CSS, Django, and database management.
-                  </div>
-                  <div class="achievement-skills">
-                      <span class="skill-tag">Django</span>
-                      <span class="skill-tag">Python</span>
-                      <span class="skill-tag">HTML/CSS</span>
-                      <span class="skill-tag">Bootstrap</span>
-                  </div>
-                  <div class="achievement-links">
-                      <a href="https://www.udemy.com/certificate/UC-0843d7ff-e316-4109-9813-51aeb0d79bb4/" class="achievement-link" target="_blank">View Certificate</a>
-                  </div>
+              <div class="achievement-skills">
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">Bootstrap</span>
               </div>
+              <div class="achievement-links">
+                <a href="https://www.udemy.com/certificate/UC-0843d7ff-e316-4109-9813-51aeb0d79bb4/"
+                  class="achievement-link" target="_blank">View Certificate</a>
+              </div>
+            </div>
           </div>
-  
+
           <!-- Django Essential Training -->
           <div class="achievement-card">
-              <div class="achievement-header">
-                  <div class="achievement-date">December 9, 2022</div>
-                  <div class="achievement-title">Django Essential Training</div>
+            <div class="achievement-header">
+              <div class="achievement-date">December 9, 2022</div>
+              <div class="achievement-title">Django Essential Training</div>
+            </div>
+            <div class="achievement-content">
+              <div class="achievement-source">LinkedIn Learning</div>
+              <div class="achievement-description">
+                Advanced training in Django framework, covering HTTP requests, authentication systems, and dynamic
+                template creation.
               </div>
-              <div class="achievement-content">
-                  <div class="achievement-source">LinkedIn Learning</div>
-                  <div class="achievement-description">
-                      Advanced training in Django framework, covering HTTP requests, authentication systems, and dynamic template creation.
-                  </div>
-                  <div class="achievement-skills">
-                      <span class="skill-tag">Django</span>
-                      <span class="skill-tag">Authentication</span>
-                      <span class="skill-tag">Templates</span>
-                  </div>
-                  <div class="achievement-links">
-                      <a href="https://www.linkedin.com/learning/certificates/ddec029c5bf8c00031741fbcb958803a1dfd0b01fdcd4f6147eaca9d54739520" class="achievement-link" target="_blank">View Certificate</a>
-                  </div>
+              <div class="achievement-skills">
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">Authentication</span>
+                <span class="skill-tag">Templates</span>
               </div>
+              <div class="achievement-links">
+                <a href="https://www.linkedin.com/learning/certificates/ddec029c5bf8c00031741fbcb958803a1dfd0b01fdcd4f6147eaca9d54739520"
+                  class="achievement-link" target="_blank">View Certificate</a>
+              </div>
+            </div>
           </div>
-  
+
           <!-- Python Bootcamp -->
           <div class="achievement-card">
-              <div class="achievement-header">
-                  <div class="achievement-date">October 02, 2021</div>
-                  <div class="achievement-title">Python Programming Complete Beginners Course</div>
-              </div>
-              <div class="achievement-content">
-                  <div class="achievement-source">Udemy Certification</div>
-                  <div class="achievement-description">
-                      Mastered Python 3.x fundamentals including OOP, data collections, error handling, and functional programming.
-                  </div>
-                  <div class="achievement-skills">
-                      <span class="skill-tag">Python 3</span>
-                      <span class="skill-tag">OOP</span>
-                      <span class="skill-tag">Error Handling</span>
-                  </div>
-                  <div class="achievement-links">
-                      <a href="https://www.udemy.com/certificate/UC-e879de93-46bc-42e8-9e3f-d8cf176b1780/" class="achievement-link" target="_blank">View Certificate</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-
-   
-
-
-<!-- contect section  -->
-
-  <section class="contact-section" id="contact">
-    <div class="map-background"></div>
-    <div class="contact-container">
-      <div class="contact-card">
-        <div class="contact-header">
-          <h2 class="contact-title">Contact Me</h2>
-          <p class="contact-subtitle">Feel free to reach out</p>
-        </div>
-        
-        <div class="contact-grid">
-          <form action="https://formspree.io/f/xwkgpggv" method="POST">
-            <div class="form-group">
-              <div class="input-wrapper">
-                <i class="fas fa-user input-icon"></i>
-                <input type="text" class="form-input" name="name" placeholder="Your Name" required>
-              </div>
+            <div class="achievement-header">
+              <div class="achievement-date">October 02, 2021</div>
+              <div class="achievement-title">Python Programming Complete Beginners Course</div>
             </div>
-            
-            <div class="form-group">
-              <div class="input-wrapper">
-                <i class="fas fa-bookmark input-icon"></i>
-                <input type="text" class="form-input" name="Subject" placeholder="Subject" required>
+            <div class="achievement-content">
+              <div class="achievement-source">Udemy Certification</div>
+              <div class="achievement-description">
+                Mastered Python 3.x fundamentals including OOP, data collections, error handling, and functional
+                programming.
               </div>
-            </div>
-            
-            <div class="form-group">
-              <div class="input-wrapper">
-                <i class="fas fa-envelope input-icon"></i>
-                <input type="email" class="form-input" name="_replyto" placeholder="Your Email" required>
+              <div class="achievement-skills">
+                <span class="skill-tag">Python 3</span>
+                <span class="skill-tag">OOP</span>
+                <span class="skill-tag">Error Handling</span>
               </div>
-            </div>
-            
-            <div class="form-group">
-              <textarea class="form-input" name="message" placeholder="Your Message" required></textarea>
-            </div>
-            
-            <button type="submit" class="submit-btn">
-              Send Message
-            </button>
-          </form>
-          
-          <div class="contact-info">
-            <div class="info-item">
-              <div class="info-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div class="info-content">
-                <div class="info-label">Address</div>
-                <div class="info-value">Indore, M.P.</div>
-              </div>
-            </div>
-            
-            <div class="info-item">
-              <div class="info-icon">
-                <i class="fas fa-phone"></i>
-              </div>
-              <div class="info-content">
-                <div class="info-label">Phone</div>
-                <a href="tel:+918085446961" class="info-value">+91 (808) 544-6961</a>
-              </div>
-            </div>
-            
-            <div class="info-item">
-              <div class="info-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="info-content">
-                <div class="info-label">Email</div>
-                <a href="mailto:er.hariomkumawat@gmail.com" class="info-value">er.hariomkumawat@gmail.com</a>
+              <div class="achievement-links">
+                <a href="https://www.udemy.com/certificate/UC-e879de93-46bc-42e8-9e3f-d8cf176b1780/"
+                  class="achievement-link" target="_blank">View Certificate</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+
+
+
+
+      <!-- contect section  -->
+
+      <section class="contact-section" id="contact">
+        <div class="map-background"></div>
+        <div class="contact-container">
+          <div class="contact-card">
+            <div class="contact-header">
+              <h2 class="contact-title">Contact Me</h2>
+              <p class="contact-subtitle">Feel free to reach out</p>
+            </div>
+
+            <div class="contact-grid">
+              <form action="https://formspree.io/f/xwkgpggv" method="POST">
+                <div class="form-group">
+                  <div class="input-wrapper">
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" class="form-input" name="name" placeholder="Your Name" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="input-wrapper">
+                    <i class="fas fa-bookmark input-icon"></i>
+                    <input type="text" class="form-input" name="Subject" placeholder="Subject" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="input-wrapper">
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input type="email" class="form-input" name="_replyto" placeholder="Your Email" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <textarea class="form-input" name="message" placeholder="Your Message" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                  Send Message
+                </button>
+              </form>
+
+              <div class="contact-info">
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="info-content">
+                    <div class="info-label">Address</div>
+                    <div class="info-value">Indore, M.P.</div>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div class="info-content">
+                    <div class="info-label">Phone</div>
+                    <a href="tel:+918085446961" class="info-value">+91 (808) 544-6961</a>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="info-content">
+                    <div class="info-label">Email</div>
+                    <a href="mailto:er.hariomkumawat@gmail.com" class="info-value">er.hariomkumawat@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
   <footer class="footer">
@@ -782,9 +836,9 @@
         <i class="fab fa-instagram"></i>
       </a>
     </div>
-    
+
     <h3 class="footer-title">Hariom Kumawat</h3>
-    
+
     <div class="footer-copyright">
       <p>&copy; 2024 All rights reserved.<br>
         Designed by <a href="#" class="footer-link">HariomKumawat</a>
@@ -798,9 +852,21 @@
   <script src="js/aos.js?ver=1.1.0"></script>
   <script src="scripts/main.js?ver=1.1.0"></script>
   <script src="js/index.js"></script>
-  
-  
 
+<!-- loader -->
+  <script>
+    // Hide loader after page is fully loaded
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader");
+      const content = document.getElementById("content");
+
+      loader.classList.add("loader-hidden"); // Smooth transition
+      setTimeout(() => {
+        loader.style.display = "none"; // Hide loader completely
+        content.style.display = "block"; // Show page content
+      }, 500);
+    });
+  </script>
 </body>
 
 </html>
